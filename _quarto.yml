@@ -25,9 +25,9 @@ book:
     - references.qmd
   appendices:
     - annexe1.qmd
-  repo-url: https://github.com/ericmarcon/Memoire_BioGET/
+  repo-url: https://github.com/faycal-khe/M-moire_BioGET/
   repo-actions: [edit]
-  site-url: https://ericmarcon.github.io/Memoire_BioGET/
+  site-url: https://faycal-khe.github.io/M-moire_BioGET/
   favicon: images/logo_bioget.png
   cover-image: couverture/couverture.png
   cover-image-alt: |
