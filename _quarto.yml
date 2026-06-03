@@ -1,0 +1,142 @@
+project:
+  type: book
+  # Répertoire de production du mémoire. docs est compatible avec Github
+  output-dir: docs
+
+book:
+  # Métadonnées et contenu du mémoire à compléter
+  title: Mémoire BioGET
+  author:
+    name: Prénom Nom
+    affiliation:
+      - name: Université de Montpellier / AgroParisTech
+        department: Master BioGET
+        city: Montpellier
+        state: France
+  date: last-modified
+  chapters:
+    - index.qmd          # Contient le résumé
+    - remerciements.qmd  # Suivi de la table des matières
+    - intro.qmd
+    - mm.qmd
+    - resultats.qmd
+    - discussion.qmd
+    - conclusion.qmd
+    - references.qmd
+  appendices:
+    - annexe1.qmd
+  repo-url: https://github.com/ericmarcon/Memoire_BioGET/
+  repo-actions: [edit]
+  site-url: https://ericmarcon.github.io/Memoire_BioGET/
+  favicon: images/logo_bioget.png
+  cover-image: couverture/couverture.png
+  cover-image-alt: |
+    Mémoire de stage, master BioGET
+  downloads: [pdf]
+# Couverture du PDF (cover.pdf pour un mémoire en anglais)
+# Mettre à jour le fichier Word correspondant et l'exporter en PDF
+pdftitlepage: couverture/couverture.pdf
+
+# Langue du document (en-GB ou en-US ou fr-FR)
+lang: fr-FR
+# Tableau plutôt que Table pour décrire les tableaux
+# (à supprimer pour un mémoire en anglais)
+language:
+  crossref-tbl-title: "Tableau"
+# Guillemets français, mais aussi guillemets améliorés en anglais
+csquotes: true
+
+# Bibliographie
+bibliography: references.bib
+# Style bibliographique : APA 7
+csl: apa
+# Table des matières
+toc: true
+# Profondeur : titres 1 à 3
+toc-depth: 3
+# Liste des figures
+lof: true
+# Liste des tables
+lot: true
+# Numérotation des sections
+number-sections: true
+# Profondeur
+number-depth: 3
+# Couleur des liens
+linkcolor: blue
+toccolor: black
+urlcolor: blue
+
+
+# Comportement des bouts de codes R
+execute:
+  # show code chunk output
+  include: true
+  # Show the code in the output
+  echo: false
+  # Show messages
+  message: false
+  # Show warnings
+  warning: false
+  # Cache code results
+  cache: true
+
+format:
+  html:
+    theme:
+      - cosmo
+    filters:
+    # Formatage du texte en français en HTML. Adapté de:
+    # https://github.com/InseeFrLab/pandoc-filter-fr-nbsp
+    - fr-nbsp.lua
+  pdf:
+    # Classe du document : rapport
+    documentclass: scrreprt
+    # Options de la classe: recto-verso
+    classoption: [twoside]
+    papersize: A4
+    # Taille de la police. Ne pas dépasser 80 caractères par ligne.
+    fontsize: 11pt
+    # Police Palatino (TeX Gyre Pagella)
+    # https://www.gust.org.pl/projects/e-foundry/tex-gyre
+    mainfont: texgyrepagella
+    mainfontoptions:
+      - Extension=.otf
+      - UprightFont=*-regular
+      - BoldFont=*-bold
+      - BoldItalicFont=*-bolditalic
+      - ItalicFont=*-italic
+    # Police mathématique assortie
+    mathfont: texgyrepagella-math.otf
+    # Géométrie de la page
+    # https://tex.stackexchange.com/questions/132170/what-do-headheight-headsep-etc-do-in-the-vmargin-package
+    geometry:
+      # Marges
+      - inner=4cm
+      - outer=3cm
+      - top=3cm
+      - bottom=3cm
+      # Espace entre entête et corps de texte
+      - headsep=22pt
+      # Taille des entêtes
+      - headheight=20pt
+      # Taille du pied de page
+      - footskip=33pt
+      # Mode de calcul de la hauteur de la page
+      - ignorehead
+      - ignorefoot
+      # Arrondi de la hauteur de la page pour simplifier le travail de LaTeX
+      - heightrounded
+    # Paragraphes indentés
+    indent: true
+    # Formatage du modèle LaTeX
+    template-partials:
+      - partials/header-includes.tex
+      - partials/title.tex
+      - partials/toc.tex
+    include-in-header: partials/header-includes.tex
+    # Conserver le fichier tex intermédiaire pour pdf
+    keep-tex: true
+
+# Mode d'ouverture de l'éditeur
+editor: visual
