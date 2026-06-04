@@ -34,7 +34,27 @@
     "href": "intro.html",
     "title": "1  Introduction",
     "section": "",
-    "text": "Problématique\nObjectifs\nPlan général de la démarche",
+    "text": "1.1 Problématique",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#objectifs",
+    "href": "intro.html#objectifs",
+    "title": "1  Introduction",
+    "section": "1.2 Objectifs",
+    "text": "1.2 Objectifs",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#plan-général-de-la-démarche",
+    "href": "intro.html#plan-général-de-la-démarche",
+    "title": "1  Introduction",
+    "section": "1.3 Plan général de la démarche",
+    "text": "1.3 Plan général de la démarche",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
