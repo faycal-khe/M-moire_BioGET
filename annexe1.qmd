@@ -14,7 +14,7 @@ Les figures produites par du code R suivent la syntaxe suivante.
 # Load the packages in the first chiunk of each chapter
 library("tidyverse")
 # Recall the ggplot theme defined in the options chunk
-ggtheme_set()
+theme_set()
 # Example plot
 mpg %>% 
   ggplot(aes(x = cty, y = hwy)) +
@@ -29,9 +29,15 @@ Lien entre l'autonomie sur autoroute et en ville de 38 modèles de voiture.
 
 Pour appeler une figure, insérer une référence croisée : @fig-nom_figure.
 
-Pour une figure enregistrée dans un fichier (comme la @fig-BioGET), il est possible d'utiliser la syntaxe de Markdown si le titre ne contient qu'une seule ligne.
+Pour une figure enregistrée dans un fichier (comme la @fig-BioGET), il est possible d'utiliser la syntaxe de Markdown si le titre ne 
 
 ![Logo de BioGET](images/logo_bioget.png){#fig-BioGET}
+
+essayons ca 
+
+![Schéma One heath](images/fig1.png){#fig-onehealth}
+
+la @fig-onehealth est un test 
 
 ## Tableaux
 
@@ -63,6 +69,9 @@ mtcars %>%
 Caractéristiques de plusieurs modèles de voitures : autonomie en miles par gallon d'essence, nombre de cylindres du moteurs, cylindrée en pouces cubes et puissance en chevaux.
 :::
 
+## 
+
+
 ## Équations
 
 Les équations en ligne sont entourées par un simple `$`, alors que les équations numérotées le sont par `$$` et sont nommées pour permettre leur référencement (@eq-cercle):
@@ -72,3 +81,5 @@ $$A = \pi r^2$$ {#eq-cercle}
 ## Bibliographie
 
 Insérez les références à partir de Zotero en mode visuel (Insert / Citation) ou bien utilisez le plug-in Better BibTeX de Zotero pour exporter un dossier de références automatiquement à chaque modification.
+
+</div>
