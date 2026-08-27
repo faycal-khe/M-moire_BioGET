@@ -103,7 +103,7 @@ Afin d'explorer un potentiel effet spatiale de la prévalence, la répartition d
 
 La majorité des zones échantillonnées présentaient des proportions d'élevages positifs relativement faibles et comparables, généralement comprises entre 10 et 20 %. La zone Saint-André/Saint-Benoît présentait la prévalence apparente la plus élevée, avec 50 % d'élevages positifs (3/6), alors que les autres secteurs affichaient des valeurs plus faibles.
 
-Cependant, les intervalles de confiance associés à ces estimations étaient larges et largement chevauchants en raison des faibles effectifs disponibles dans chaque zone, comme montré dans la @fig-stat2. En conséquence, aucune différence statistiquement significative de prévalence n'a été mise en évidence entre les régions (test exact de Fisher, p = 0,47). Les effectifs régionaux étaient insuffisants pour déterminer si la prévalence variait réellement selon la localisation géographique des élevages. Ces résultats ne permettent pas d'identifier un foyer géographique particulier de circulation des entérobactéries résistantes à l'échelle de l'île. La distribution observée est davantage compatible avec une circulation diffuse au sein de la filière porcine réunionnaise qu'avec une concentration de la résistance dans un nombre limité d'élevages ou dans une région spécifique. Néanmoins, la prévalence observée dans la zone Saint-André/Saint-Benoît justifie que ce secteur fasse l'objet d'une attention particulière dans le cadre de futurs travaux impliquant des effectifs plus importants.
+Cependant, les intervalles de confiance associés à ces estimations étaient larges et largement chevauchants en raison des faibles effectifs disponibles dans chaque zone, comme montré dans la @fig-stat2. En conséquence, aucune différence statistiquement significative de prévalence n'a été mise en évidence entre les régions (test exact de Fisher, p\* = 0,47). Les effectifs régionaux étaient insuffisants pour déterminer si la prévalence variait réellement selon la localisation géographique des élevages. Ces résultats ne permettent pas d'identifier un foyer géographique particulier de circulation des entérobactéries résistantes à l'échelle de l'île. La distribution observée est davantage compatible avec une circulation diffuse au sein de la filière porcine réunionnaise qu'avec une concentration de la résistance dans un nombre limité d'élevages ou dans une région spécifique. Néanmoins, la prévalence observée dans la zone Saint-André/Saint-Benoît justifie que ce secteur fasse l'objet d'une attention particulière dans le cadre de futurs travaux impliquant des effectifs plus importants.
 
 ::: {#fig-stat2}
 ```{r}
@@ -181,7 +181,7 @@ Comparaison de la prévalence par commune.
 
 Une analyse univariée par régression logistique a été réalisée afin d'identifier les facteurs associés au portage d'entérobactéries productrices de β-lactamases à spectre étendu (E-BSL). Parmi les variables étudiées, deux présentaient une association avec le statut E-BSL pour un seuil de sélection fixé à p\*\< 0,20 : la présence d'un point d'eau à moins de 100 m de l'élevage et le respect de la marche en avant.
 
-La présence d'un point d'eau à moins de 100 m’était associée à une augmentation du risque de présence de bactérie résistante dans l’elevage (OR = 4,06 \[0,92 ;16,5 \]; p\* = 0,052). À l'inverse, le respect de la marche en avant était associée à une diminution du risque (OR = 0,23 \[0,06 ;0,87\] ; p\* = 0,030).
+La présence d'un point d'eau à moins de 100 m’était associée à une augmentation du risque de présence de bactérie résistante dans l’élevage (OR = 4,06 \[0,92 ;16,5 \]; p\* = 0,052). À l'inverse, le respect de la marche en avant était associée à une diminution du risque (OR = 0,23 \[0,06 ;0,87\] ; p\* = 0,030).
 
 Ces deux variables ont ensuite été intégrées dans un modèle de régression logistique multivarié. Après ajustement, la proximité d'un point d'eau à moins de 100 m demeurait associée à une augmentation du risque, bien que cette association ne soit plus statistiquement significative (OR ajusté = 2,83 \[0,58 ;12,38\] ; p\* = 0,174). De même, l'effet protecteur de la marche en avant persistait après ajustement mais n'atteignait plus le seuil de significativité statistique (OR ajusté = 0,30 \[0,07 ;1,19\] ; p\* = 0,082).
 
@@ -189,11 +189,11 @@ Une analyse de contingence a mis en évidence une association significative entr
 
 Les résultats détaillés des analyses univariée, multivariée et de corrélation sont présentés en annexe XXX.
 
-Une analyse de puissance a posteriori a été réalisée pour les deux facteurs retenus à l'issue de l'analyse univariée. La puissance statistique obtenue était de 55,9 % pour la variable « marche en avant » et de 42,9 % pour la variable « présence d'un point d'eau à moins de 100 m ». Ces valeurs sont inférieures au seuil de 80 % généralement recommandé pour assurer une capacité suffisante à détecter une association lorsqu'elle existe réellement. Ces résultats suggèrent que l'étude était probablement sous-dimensionnée pour mettre en évidence certains facteurs associés à la présence d’entérobactérie résistante. Ainsi, la perte de significativité observée après ajustement pourrait résulter à la fois d'un effet de confusion entre les variables étudiées et d'un manque de puissance statistique lié au faible nombre d'élevages positifs inclus dans l'analyse. En effet, bien que les associations identifiées en analyse univariée aient conservé la même direction après ajustement, les intervalles de confiance se sont élargis et les p-values ont augmenté. Néanmoins, la proximité d'un point d'eau demeure un facteur de risque associé au portage d'entérobactéries résistantes, tandis que le respect de la marche en avant demeure associé à une diminution du risque. L'absence de significativité statistique après ajustement doit donc être interprétée avec prudence.
+Une analyse de puissance a *posteriori* a été réalisée pour les deux facteurs retenus à l'issue de l'analyse univariée. La puissance statistique obtenue était de 55,9 % pour la variable « marche en avant » et de 42,9 % pour la variable « présence d'un point d'eau à moins de 100 m ». Ces valeurs sont inférieures au seuil de 80 % généralement recommandé pour assurer une capacité suffisante à détecter une association lorsqu'elle existe réellement. Ces résultats suggèrent que l'étude était probablement sous-dimensionnée pour mettre en évidence certains facteurs associés à la présence d’entérobactérie résistante. Ainsi, la perte de significativité observée après ajustement pourrait résulter à la fois d'un effet de confusion entre les variables étudiées et d'un manque de puissance statistique lié au faible nombre d'élevages positifs inclus dans l'analyse. En effet, bien que les associations identifiées en analyse univariée aient conservé la même direction après ajustement, les intervalles de confiance se sont élargis et les p-values ont augmenté. Néanmoins, la proximité d'un point d'eau demeure un facteur de risque associé au portage d'entérobactéries résistantes, tandis que le respect de la marche en avant demeure associé à une diminution du risque. L'absence de significativité statistique après ajustement doit donc être interprétée avec prudence.
 
 ## Identification des souches résistantes
 
-Parmi les 16 souches isolées, cinq appartenaient au genre Klebsiella, dont deux Klebsiella oxytoca et trois Klebsiella pneumoniae. Huit souches ont été identifiées comme Escherichia coli, une souche comme Serratia fonticola et deux souches comme appartenant au complexe Enterobacter cloacae. Le @tbl-ID présente la répartition détaillée des espèces bactériennes identifiées.
+Parmi les 16 souches isolées, cinq appartenaient au genre *Klebsiella*, dont deux *Klebsiella oxytoca* et trois *Klebsiella pneumoniae*. Huit souches ont été identifiées comme *Escherichia coli*, une souche comme Serratia fonticola et deux souches comme appartenant au complexe *Enterobacter cloacae*. Le @tbl-ID présente la répartition détaillée des espèces bactériennes identifiées.
 
 ::: {#tbl-ID}
 ```{r}
@@ -244,8 +244,23 @@ table_identification <- ID %>%
     Identification_Gambit = Gambit
 
   )%>%
+    mutate(
+    groupe_espece = case_when(
+      grepl("coli", Identification_Gambit, ignore.case = TRUE) ~ "Escherichia coli",
+      grepl("oxytoca", Identification_Gambit, ignore.case = TRUE) ~ "Klebsiella oxytoca",
+      grepl("pneumoniae", Identification_Gambit, ignore.case = TRUE) ~ "Klebsiella pneumoniae",
+      TRUE ~ "Autre"
+    ),
+    groupe_espece = factor(
+      groupe_espece,
+      levels = c("Escherichia coli",
+                 "Klebsiella oxytoca", "Klebsiella pneumoniae", "Autre")
+    )
+  ) %>%
+  arrange(groupe_espece, ST, isolat_ID) %>%
   # isolats retenus
-  slice(1:17)
+  slice(1:17)%>% 
+select(-groupe_espece)
 
 # Création de la figure-table
 fig_identification <- table_identification %>%
@@ -403,6 +418,8 @@ ani$group=cut(ani$ANI,c(0,90,95,98,100))
 ani$from=gsub(".fasta","",ani$from)
 ani$to=gsub(".fasta","",ani$to)
 md=read.xlsx("metadata.xlsx")
+ani$from <- gsub("(29FP)_", "\\1.", ani$from)
+ani$to <- gsub("(29FP)_", "\\1.", ani$to)
 ani$from2=md$name[match(ani$from,md$accession)]
 ani$to2=md$name[match(ani$to,md$accession)]
 dist=as.dist(xtabs(100-ANI ~ from2+to2,ani))
@@ -453,23 +470,25 @@ Cette approche a permis d'affiner l'identification taxonomique des isolats étud
 
 ## Analyse du phénotype de résistance (antibiogramme)
 
-Les 16 antibiogramme ont été réalisé, puis les résultats ont été compillé en @fig-pheno
+Les 16 antibiogramme ont été réalisé, puis les résultats ont été compilé en @fig-pheno
 
 ![Heatmaps des profil de résistance des souches isolées](images/fig10.png){#fig-pheno}
 
-De manière générale, cette analyse met en évidence une résistance élevée aux β-lactamines parmi les isolats étudiés. La majorité des souches présentaient une résistance à l'amoxicillineet à la ticarcilline, confirmant un phénotype compatible avec la production de β-lactamases à spectre étendu (BLSE). La résistance à l'amoxicilline-acide clavulanique observée uniquement chez les isolats appartenant au complexe *Enterobacter cloacae* était attendue, cette espèce présentant une résistance intrinsèque à cette association du fait de la production d'une céphalosporinase chromosomique de type AmpC, faiblement inhibée par l'acide clavulanique.
+De manière générale, cette analyse met en évidence une résistance élevée aux β-lactamines parmi les isolats étudiés. La majorité des souches présentaient une résistance à l'amoxicilline et à la ticarcilline, confirmant un phénotype compatible avec la production de β-lactamases à spectre étendu (BLSE). La résistance à l'amoxicilline-acide clavulanique observée uniquement chez les isolats appartenant au complexe *Enterobacter cloacae* était attendue, cette espèce présentant une résistance intrinsèque à cette association du fait de la production d'une céphalosporinase chromosomique de type AmpC, faiblement inhibée par l'acide clavulanique.
 
 Concernant les céphalosporines de troisième et quatrième génération, une résistance au céfotaxime a été observée chez l’ensemble des isolats d’*Escherichia coli* et de *Klebsiella spp.*. Ce résultat était attendu compte tenu de la stratégie d’isolement mise en œuvre, fondée sur la sélection d’entérobactéries productrices de β-lactamases à spectre étendu (BLSE). La résistance au céfotaxime confirme ainsi le phénotype BLSE recherché et la pertinence de la méthode de sélection utilisée. En revanche, les profils obtenus pour le céfépime et la ceftazidime apparaissaient plus hétérogènes selon les isolats. Cette variabilité pourrait refléter des différences dans le type de β-lactamase portée, son niveau d’expression ou la présence de mécanismes de résistance complémentaires, conduisant à des profils de sensibilité distincts entre les souches.
 
 Il convient toutefois de distinguer l’isolat résistant aux carbapénèmes des isolats présentant un phénotype BLSE classique. En effet, la résistance aux carbapénèmes repose sur des mécanismes distincts de ceux responsables de la production de BLSE et ne peut donc être assimilée à ce phénotype.
 
-À l'inverse, la quasi-totalité des isolats demeurait sensible aux carbapénèmes, notamment à l'imipénème et à l'ertapénème. Cette observation suggère l'absence de carbapénémase fonctionnelle chez la majorité des souches étudiées et confirme que ces molécules conservent une activité efficace contre ces entérobactéries productrices de BLSE. Une exception notable a toutefois été observée pour l'isolat 29FP.B, qui présentait une résistance à l'imipénème et à l'ertapénème. Cette observation est cohérente avec son isolement sur un milieu sélectif contenant un carbapénème. Cet isolat représente donc une souche d'intérêt particulier et constitue un signal de vigilance sur le plan épidémiologique, justifiant des investigations complémentaires visant à identifier les mécanismes moléculaires impliqués dans cette résistance.
+À l'inverse, la quasi-totalité des isolats demeurait sensible aux carbapénèmes, notamment à l'imipénème et à l'ertapénème. Cette observation suggère l'absence de carbapénémase fonctionnelle chez la majorité des souches étudiées et confirme que ces molécules conservent une activité efficace contre ces entérobactéries productrices de BLSE. Ce qui concorde avec la non utilisation de ce type d'antibiotique en médecine vétérinaire. Une exception notable a toutefois été observée pour l'isolat 29FP.B, qui présentait une résistance à l'imipénème et à l'ertapénème. Cette observation est cohérente avec son isolement sur un milieu sélectif contenant un carbapénème. Cet isolat représente donc une souche d'intérêt particulier et constitue un signal de vigilance sur le plan épidémiologique, justifiant des investigations complémentaires visant à identifier les mécanismes moléculaires impliqués dans cette résistance.
 
 Enfin, l'ensemble des isolats de *Klebsiella* présentaient une résistance au triméthoprime-sulfaméthoxazole,non retourvé chez les autres souches. Cette résistance n'est pas décrite comme un caractère intrinsèque chez ce genre bactérien et résulte généralement de l'acquisition de déterminants génétiques spécifiques.
 
 Les autres familles d'antibiotiques présentaient des profils de résistance plus variables. Des résistances aux fluoroquinolones, notamment à la ciprofloxacine et à l'ofloxacine, ont été observées chez plusieurs isolats. Les résistances aux tétracyclines concernaient quant à elles un sous-groupe plus restreint de souches. La sensibilité à la gentamicine demeurait globalement conservée dans l'ensemble de la collection.
 
-Concernant la colistine, une proportion importante d'isolats a été classée dans la catégorie « intermédiaire », tandis qu'un isolat présentait un profil résistant. Ces résultats doivent néanmoins être interprétés avec prudence. En effet, la méthode utilisée dans cette étude n'est pas considérée comme la plus adaptée à l'évaluation de la sensibilité à la colistine et peut conduire à des erreurs de classification. Les recommandations actuelles privilégient la détermination de la concentration minimale inhibitrice (CMI) par microdilution en bouillon, qui constitue la méthode de référence pour cet antibiotique. Par conséquent, les profils observés pour la colistine nécessiteraient une confirmation par une méthode standardisée avant toute conclusion définitive.
+Concernant la colistine, une proportion importante d'isolats a été classée dans la catégorie « intermédiaire », tandis qu'un isolat présentait un profil résistant. Ces résultats doivent néanmoins être interprétés avec prudence. En effet, la méthode utilisée dans cette étude n'est pas considérée comme la plus adaptée à l'évaluation de la sensibilité à la colistine et peut conduire à des erreurs de classification. Cela est due au mode d'action particulier de la colistine (formation de pores dans les menbranes bactérienne). Les recommandations actuelles privilégient la détermination de la concentration minimale inhibitrice (CMI) par microdilution en bouillon, qui constitue la méthode de référence pour cet antibiotique. Par conséquent, les profils observés pour la colistine nécessiteraient une confirmation par une méthode standardisée avant toute conclusion définitive.
+
+Enfin, 11, soit 68,75 %, des souches isolées sont multirésistantes, c’est-à-dire qu’elles présentent une résistance à au moins un antibiotique dans au moins trois classes d’antibiotiques différentes.Les profils de résistance observés associaient plusieurs classes d’antibiotiques, témoignant d’une accumulation de déterminants de résistance au sein d’une même souche. Cela constitue un signal fort de santé publique
 
 ## Analyse du génotype de résistance (gènes détectés)
 
@@ -483,9 +502,9 @@ L’un des isolats d’*Enterobacter cloacae* portait également le gène de car
 
 Chez les isolats de *Klebsiella oxytoca*, le gène chromosomique blaOXY-1-9 expliquait le profil de résistance intrinsèque aux β-lactamines, tandis que blaCTX-M-15 était associé au phénotype BLSE. Des déterminants additionnels tels que tetD, qnrB1 et le système d’efflux oqxAB contribuaient respectivement aux résistances aux tétracyclines et aux fluoroquinolones observées chez certains isolats.
 
-Enfin, plusieurs isolats de *Klebsiella pneumoniae* et *Klebsiella oxytoca* partageaient un plasmide de type IncFIB portant notamment blaCTX-M-15, blaTEM-1, aph(3'')-Ib, aph(6)-Id et sul2. La co-localisation de ces gènes sur un même plasmide favorise leur co-sélection lors de l’exposition à l’une de ces familles d’antibiotiques et souligne le rôle potentiel des plasmides IncFIB dans la dissémination des déterminants de résistance au sein des entérobactéries. Toutefois, malgré la présence des gènes aph, aucun phénotype de résistance aux aminosides n’a été observé chez les isolats concernés, suggérant une absence d’expression ou une expression insuffisante de ces déterminants dans les conditions testées.
+Enfin, plusieurs isolats de *Klebsiella pneumoniae* et *Klebsiella oxytoca* partageaient un plasmide de type IncFIB portant notamment blaCTX-M-15, blaTEM-1, dfrA14, qnrS1, aph(3'')-Ib, aph(6)-Id et sul2. La co-localisation de ces gènes sur un même plasmide favorise leur co-sélection lors de l’exposition à l’une de ces familles d’antibiotiques et souligne le rôle potentiel des plasmides IncFIB dans la dissémination des déterminants de résistance au sein des entérobactéries. Toutefois, malgré la présence des gènes aph, aucun phénotype de résistance aux aminosides n’a été observé chez les isolats concernés, suggérant une absence d’expression ou une expression insuffisante de ces déterminants dans les conditions testées.
 
-## Etude phylogénomique de l’interconnexion des compartiement
+## Etude phylogénomique de l’interconnexion des compartiements
 
 ![TBD](images/fig12.png){#fig-den1}
 
@@ -493,7 +512,7 @@ La @fig-den1 met évidence de proximité génétique marquée entre les isolats 
 
 ![ressemblance](images/fig13.png){#fig-den2}
 
-La @fig-den2 met en évidence une forte proximité génétique entre l'ensemble des isolats de Klebsiella pneumoniae, avec des distances génomiques inférieures à 100 SNPs. Cette faible divergence suggère l'existence d'une origine commune récente ou la circulation d'un même pool génétique à l'échelle de l'île. Ainsi, lLes isolats porcins ne constituent pas une lignée spécifique mais s'intègrent dans un ensemble plus large de souches circulant à La Réunion, suggérant que le compartiment porcin participe à une dynamique insulaire de circulation de *Klebsiella* plutôt qu'à un réservoir indépendant. Par ailleurs, une proximité génétique particulièrement marquée est observée entre les isolats appartenant au ST4083 issus des compartiments porcin et avicole, ce qui pourrait refléter l'existence d'un réservoir commun ou de voies de diffusion partagées entre ces deux compartiments. Ces observations appuient l'hypothèse d'une circulation à l'échelle de l'île plutôt que d'une population bactérienne strictement confinée au secteur porcin.
+La @fig-den2 met en évidence une forte proximité génétique entre l'ensemble des isolats de *Klebsiella* pneumoniae, avec des distances génomiques inférieures à 100 SNPs. Cette faible divergence suggère l'existence d'une origine commune récente ou la circulation d'un même pool génétique à l'échelle de l'île. Ainsi, Les isolats porcins ne constituent pas une lignée spécifique mais s'intègrent dans un ensemble plus large de souches circulant à La Réunion, suggérant que le compartiment porcin participe à une dynamique insulaire de circulation de *Klebsiella* plutôt qu'à un réservoir indépendant. Par ailleurs, une proximité génétique particulièrement marquée est observée entre les isolats appartenant au ST4083 issus des compartiments porcin et avicole, ce qui pourrait refléter l'existence d'un réservoir commun ou de voies de diffusion partagées entre ces deux compartiments. Ces observations appuient l'hypothèse d'une circulation à l'échelle de l'île plutôt que d'une population bactérienne strictement confinée au secteur porcin.
 
 ![ressemblance mais pas vraiment](images/fig14.png){#fig-den3}
 
