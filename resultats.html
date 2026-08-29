@@ -23,7 +23,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -74,6 +93,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -175,7 +223,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./annexe1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Mode d’emploi de ce modèle</span></span></a>
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Données d’analyse de facteur de risque</span></span></a>
   </div>
 </li>
       </ul>
@@ -231,12 +279,12 @@ ul.task-list li input[type="checkbox"] {
 <img src="images/fig5.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-map1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.1: Carte d’échantillonage par commune
+Figure&nbsp;3.1: Carte de l’échantillonage par commune.
 </figcaption>
 </figure>
 </div>
 <p>Aucun résultat positif n’a été obtenu par la technique d’écouvillonnage, cette dernière étant probablement d’une sensibilité insuffisante dans un contexte comme celui de La Réunion.</p>
-<p>Ces résultats permettent d’estimer une prévalence en élevage de 13,5 % (IC95 % : [7,5 ; 22,8]). Cette prévalence est significativement inférieure à celles rapportées dans deux études antérieures menées à La Réunion, qui estimaient respectivement une prévalence de 53,3 % (IC95 % : [35,1 ; 71,5]) des élevages porcins positifs pour des entérobactéries productrices de BLSE (XXX) et de 50,0 % (IC95 % : [31,3 ; 68,7]) pour les élevages porcins hébergeant des E. coli producteurs de BLSE (XXX). Les comparaisons de prévalence, réalisées à l’aide d’un test exact binomial de comparaison de proportions, ont mis en évidence une différence statistiquement significative avec les deux études (p* &lt; 0,001 pour les deux <span style="white-space:nowrap">comparaison ;</span> <a href="#fig-stat1" class="quarto-xref">Figure&nbsp;<span>3.2</span></a> ). Ces résultats suggèrent une diminution marquée de la prévalence des élevages porcins positifs pour les BLSE à La Réunion au cours des huit dernières années, avec une prévalence environ quatre fois plus faible que celle rapportée précédemment.</p>
+<p>Ces résultats permettent d’estimer une prévalence en élevage de 13,5 % (IC95 % : [7,5 ; 22,8]). Cette prévalence est significativement inférieure à celles rapportées dans deux études antérieures menées à La Réunion, qui estimaient respectivement une prévalence de 53,3 % (IC95 % : [35,1 ; 71,5]) des élevages porcins positifs pour des entérobactéries productrices de BLSE <span class="citation" data-cites="Farm2018"> (<a href="references.html#ref-Farm2018" role="doc-biblioref">Gay <em>et al.</em>, 2018</a>)</span> et de 50,0 % (IC95 % : [31,3 ; 68,7]) pour les élevages porcins hébergeant des E. coli producteurs de BLSE <span class="citation" data-cites="miltgenOneHealthCompartmental2022"> (<a href="references.html#ref-miltgenOneHealthCompartmental2022" role="doc-biblioref">Miltgen <em>et al.</em>, 2022</a>)</span>. Les comparaisons de prévalence, réalisées à l’aide d’un test exact binomial de comparaison de proportions, ont mis en évidence une différence statistiquement significative avec les deux études (p* &lt; 0,001 pour les deux <span style="white-space:nowrap">comparaison ;</span> <a href="#fig-stat1" class="quarto-xref">Figure&nbsp;<span>3.2</span></a> ). Ces résultats suggèrent une diminution marquée de la prévalence des élevages porcins positifs pour les BLSE à La Réunion au cours des huit dernières années, avec une prévalence environ quatre fois plus faible que celle rapportée précédemment.</p>
 <div id="fig-stat1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-stat1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -251,7 +299,7 @@ Figure&nbsp;3.1: Carte d’échantillonage par commune
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stat1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.2: omparaison des prévalence en fonction des <span style="white-space:nowrap">étude  ;</span> études 1(XXX) études 2 (XXX).
+Figure&nbsp;3.2: Graphique de l’évolution de la prévalence en entérobactérie résistante en fonction du temps.
 </figcaption>
 </figure>
 </div>
@@ -262,7 +310,7 @@ Figure&nbsp;3.2: omparaison des prévalence en fonction des <span style="white-s
 <img src="images/fig6.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-map2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.3: Carte de la prévalence par commune
+Figure&nbsp;3.3: Carte de la prévalence par commune.
 </figcaption>
 </figure>
 </div>
@@ -282,7 +330,7 @@ Figure&nbsp;3.3: Carte de la prévalence par commune
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stat2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.4: Comparaison de la prévalence par commune.
+Figure&nbsp;3.4: Graphique de la prévalence par commune.
 </figcaption>
 </figure>
 </div>
@@ -1005,7 +1053,7 @@ Tableau&nbsp;3.1: Tableau d”identification des souches bactériennes résistan
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-snippy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.5: Identification Entérocomplxe.
+Figure&nbsp;3.5: Matrice de similitude (méthode ANI) pour l’identification taxonomique des souches appartenant au complexe <em>Enterobacter cloacae</em>.
 </figcaption>
 </figure>
 </div>
@@ -1020,7 +1068,7 @@ Figure&nbsp;3.5: Identification Entérocomplxe.
 <img src="images/fig10.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pheno-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.6: Heatmaps des profil de résistance des souches isolées
+Figure&nbsp;3.6: Heatmaps des profils de résistance des souches isolées.
 </figcaption>
 </figure>
 </div>
@@ -1041,14 +1089,13 @@ Figure&nbsp;3.6: Heatmaps des profil de résistance des souches isolées
 <img src="images/fig11.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-geno-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.7: Profil de résistance
+Figure&nbsp;3.7: Heatmaps des gènes de résistances indentifiés.
 </figcaption>
 </figure>
 </div>
 <p>La souche 04FP.B présentait un profil génétique atypique associé à une qualité d’assemblage insuffisante. La présence simultanée de nombreux déterminants chromosomiques et plasmidiques incompatibles avec l’identité taxonomique attribuée suggérait une contamination de l’échantillon ou de l’assemblage. Cette souche a donc été exclue des analyses génomiques ultérieures. Le criblage génomique des autres isolats a mis en évidence une importante diversité de déterminants de résistance ainsi qu’une distribution variable entre chromosome et plasmides selon les espèces bactériennes.</p>
 <p>Chez les isolats d’<em>E. coli</em>, le profil génotypique est dominé par la détection quasi-systématique de blaCTX-M-15 et de qnrS1, tous deux portés par le chromosome. Chez les isolats d’Escherichia coli, le gène blaCTX-M-15 constituait le principal déterminant associé au phénotype BLSE observé. Par ailleurs, plusieurs isolats appartenant au ST58 présentaient des combinaisons distinctes de gènes de résistance malgré une même affiliation clonale. Cette variabilité suggère une importante plasticité génomique au sein de cette lignée, compatible avec la capacité d’adaptation fréquemment décrite pour ce clone largement distribué à l’échelle internationale. Chez les isolats du complexe <em>Enterobacter cloacae</em>, la présence des gènes blaACT, fosA et oqxAB correspondait au profil génétique classiquement observé dans ce groupe bactérien. Les gènes blaACT codent des céphalosporinases chromosomiques dont l’expression basale est généralement suffisante pour conférer une résistance aux aminopénicillines, sans nécessairement entraîner une résistance aux céphalosporines de troisième génération. Une telle résistance apparaît habituellement à la suite d’une surexpression ou d’une dérégulation de ces enzymes.</p>
 <p>L’un des isolats d’<em>Enterobacter cloacae</em> portait également le gène de carbapénémase blaIMI-1. Bien que localisé sur le chromosome, ce gène ne peut être considéré comme intrinsèque. Il est associé à l’élément intégratif mobile EcloIMEX, connu pour favoriser l’acquisition et la perte de ce déterminant au sein du complexe <em>E. cloacae</em>. La détection de blaIMI-1 explique le phénotype de résistance observé vis-à-vis des carbapénèmes. Sa présence dans un isolat issu d’un élevage porcin apparaît particulièrement remarquable compte tenu de l’absence d’utilisation des carbapénèmes en production porcine. Cela suggère que ce déterminant pourrait résulter d’échanges entre compartiments écologiques et constitue un marqueur potentiel de circulation intersectorielle de bactéries ou de gènes de résistance.</p>
-<p>Chez les isolats de <em>Klebsiella oxytoca</em>, le gène chromosomique blaOXY-1-9 expliquait le profil de résistance intrinsèque aux β-lactamines, tandis que blaCTX-M-15 était associé au phénotype BLSE. Des déterminants additionnels tels que tetD, qnrB1 et le système d’efflux oqxAB contribuaient respectivement aux résistances aux tétracyclines et aux fluoroquinolones observées chez certains isolats.</p>
 <p>Enfin, plusieurs isolats de <em>Klebsiella pneumoniae</em> et <em>Klebsiella oxytoca</em> partageaient un plasmide de type IncFIB portant notamment blaCTX-M-15, blaTEM-1, dfrA14, qnrS1, aph(3’’)-Ib, aph(6)-Id et sul2. La co-localisation de ces gènes sur un même plasmide favorise leur co-sélection lors de l’exposition à l’une de ces familles d’antibiotiques et souligne le rôle potentiel des plasmides IncFIB dans la dissémination des déterminants de résistance au sein des entérobactéries. Toutefois, malgré la présence des gènes aph, aucun phénotype de résistance aux aminosides n’a été observé chez les isolats concernés, suggérant une absence d’expression ou une expression insuffisante de ces déterminants dans les conditions testées.</p>
 </section>
 <section id="etude-phylogénomique-de-linterconnexion-des-compartiements" class="level2" data-number="3.6">
@@ -1059,7 +1106,7 @@ Figure&nbsp;3.7: Profil de résistance
 <img src="images/fig12.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-den1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.8: TBD
+Figure&nbsp;3.8: Matrice de similitude (par calcul des SNPs) des <em>Escherichia coli</em> réunionnais.
 </figcaption>
 </figure>
 </div>
@@ -1070,7 +1117,7 @@ Figure&nbsp;3.8: TBD
 <img src="images/fig13.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-den2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.9: ressemblance
+Figure&nbsp;3.9: Matrice de similitude (par calcul des SNPs) des <em>Klebsiella</em> réunionnais.
 </figcaption>
 </figure>
 </div>
@@ -1081,13 +1128,21 @@ Figure&nbsp;3.9: ressemblance
 <img src="images/fig14.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-den3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.10: ressemblance mais pas vraiment
+Figure&nbsp;3.10: Matrice de similitude (par calcul des SNPs) des complexe <em>Enterobacter cloacae</em> réunionnais
 </figcaption>
 </figure>
 </div>
 <p>La <a href="#fig-den3" class="quarto-xref">Figure&nbsp;<span>3.10</span></a> suggère que, contrairement aux observations réalisées pour <em>Escherichia coli</em> et <em>Klebsiella spp.</em>, les isolats porcins appartenant au complexe <em>Enterobacter cloacae</em> ne présentent pas de proximité génétique marquée avec les souches issues des autres compartiments étudiés. Les isolats porcins se regroupent au sein de lignées phylogénétiques distinctes et ne partagent pas de faibles distances SNP avec les isolats humains, animaux ou environnementaux inclus dans l’analyse. Cette absence de similarité génétique suggère une circulation plus limitée de ces lignées entre les différents compartiments à l’échelle de La Réunion. Les résultats obtenus indiquent ainsi que les isolats porcins du complexe E. cloacae pourraient être associés à un réservoir davantage spécifique au compartiment porcin. À l’inverse, les isolats d’<em>E. coli</em> et de <em>Klebsiella spp.</em> Apparaissent plus étroitement liés à des souches provenant de multiples hôtes, suggérant une circulation plus importante entre les différents compartiments étudiés.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-Farm2018" class="csl-entry" role="listitem">
+<span class="nodecoration">Gay N., Leclaire A., Laval M., Miltgen G., Jégo M., Stéphane R., Jaubert J., Belmonte O., et Cardinale E. 2018. Risk <span>Factors</span> of <span>Extended-Spectrum</span> <span><span class="math inline">\(\beta\)</span></span>-<span>Lactamase Producing Enterobacteriaceae Occurrence</span> in <span>Farms</span> in <span>Reunion</span>, <span>Madagascar</span> and <span>Mayotte Islands</span>, 2016-2017. <em>Veterinary Sciences</em>, 5(1), p. 22. DOI : <a href="https://doi.org/10.3390/vetsci5010022">10.3390/vetsci5010022</a></span>
+</div>
+<div id="ref-miltgenOneHealthCompartmental2022" class="csl-entry" role="listitem">
+<span class="nodecoration">Miltgen G., Martak D., Valot B., Kamus L., Garrigos T., Verchere G., Gbaguidi-Haore H., Ben Cimon C., Ramiandrisoa M., Picot S., Lignereux A., Masson G., Jaffar-Bandjee M.-C., Belmonte O., Cardinale E., Hocquet D., Mavingui P., et Bertrand X. 2022. One <span>Health</span> Compartmental Analysis of <span>ESBL-producing Escherichia</span> Coli on <span>Reunion Island</span> Reveals Partitioning between Humans and Livestock. <em>The Journal of Antimicrobial Chemotherapy</em>, 77(5), p. 1254‑1262. DOI : <a href="https://doi.org/10.1093/jac/dkac054">10.1093/jac/dkac054</a></span>
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
