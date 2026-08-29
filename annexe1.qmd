@@ -1,4 +1,183 @@
 {{< include common.qmd >}}
 
-# Données d'analyse de facteur de risque
+# Données d'analyse de facteur de risque {#sec-annex1}
 
+
+```{r}
+#| label: setup-annexe
+#| echo: false
+#| warning: false
+#| message: false
+
+library(readxl)
+library(dplyr)
+library(broom)
+library(gt)
+library(pwr)
+
+df <- read_excel("analyse_donnees/Annalyse_risque.xlsx")
+
+df$Marche_Avant[df$Marche_Avant == "Partiel"] <- "Oui"
+df$Marche_Avant[df$Marche_Avant == "Oui"] <- 1
+df$Marche_Avant[df$Marche_Avant == "Non"] <- 0
+df$visite_veto[df$visite_veto == "occsionnelle"] <- "Frequente"
+df$Type_traitement[df$Type_traitement == "Mixte"] <- "Collectif"
+df$Isolement_Malades[df$Isolement_Malades == "Partiel"] <- "Non"
+
+farm_vars <- c("Nb_batiment", "Type_elevage", "Nb_porcs", "Nb_Truie",
+               "Nb_verrats", "Nb_bandes", "annee_installation")
+geo_vars <- c("Distance_Eau_Inf100m", "Elevage_Porcin_Inf500m", "Elevage_Autre_Espece_Inf500m")
+animal_vars <- c("Bovin", "Ovin/Caprin", "Volaille", "Chien/chat",
+                  "Lapin", "Equide", "Oiseau", "Peroquet")
+morbidity_vars <- c("patho_digestive", "patho_respiratoire", "patho_urinaire",
+                     "patho_cutanee", "Patho_repro", "Boiterie", "Canibalisme")
+atb_vars <- c("atb_penicilline", "Shotapen", "Penijectyl", "atb_amoxicilline",
+              "Kelamoxyl", "Vetrimoxin", "atb_phenicoles", "Florfenicol",
+              "atb_sulfamides", "Sulfacycline", "atb_Lincosamides", "Lincospectin",
+              "atb_macrolide", "PHARMASIN", "HUVEXXIN", "atb_Pleuromutilines",
+              "VETMULIN", "atb_Tetracyclines", "LABIMYCIN", "Frequence_atb_par_mois")
+netoy_var <- c("Utilisation_Desinfectant", "Alternance_Desinfectant", "Utilisation_Detergent")
+biosecur_var <- c("Marche_Avant", "visite_veto", "Isolement_Malades",
+                   "Duree_Quarantaine_(jours)", "Type_traitement")
+
+all_vars <- c(farm_vars, geo_vars, animal_vars, morbidity_vars, atb_vars, biosecur_var, netoy_var)
+numeric_vars <- setdiff(all_vars, c("Type_elevage", "visite_veto", "Isolement_Malades", "Type_traitement"))
+
+df_clean <- df %>%
+  mutate(
+    Outcome_EBSL = as.numeric(`E-BSL`),
+    across(all_of(numeric_vars), ~ as.numeric(as.character(.))),
+    Type_elevage = as.factor(Type_elevage),
+    visite_veto = as.factor(visite_veto),
+    Frequence_atb_par_mois = as.factor(Frequence_atb_par_mois),
+    Isolement_Malades = as.factor(Isolement_Malades),
+    Type_traitement = as.factor(Type_traitement)
+  )
+
+results_list <- list()
+
+for (var in all_vars) {
+  cat_name <- dplyr::case_when(
+    var %in% farm_vars      ~ "Caractéristiques de l'élevage",
+    var %in% geo_vars       ~ "Caractéristiques géographiques",
+    var %in% netoy_var      ~ "Pratiques de nettoyage",
+    var %in% biosecur_var   ~ "Pratiques de biosécurité",
+    var %in% animal_vars    ~ "Présence d'autres espèces",
+    var %in% morbidity_vars ~ "Historique de morbidité",
+    TRUE                    ~ "Usage des antibiotiques"
+  )
+
+  formula_str <- paste0("Outcome_EBSL ~ `", var, "`")
+
+  model <- tryCatch({
+    suppressWarnings(glm(as.formula(formula_str), data = df_clean, family = binomial(link = "logit")))
+  }, error = function(e) NULL)
+
+  if (!is.null(model)) {
+    res <- tidy(model, exponentiate = TRUE, conf.int = TRUE) %>%
+      filter(term != "(Intercept)") %>%
+      mutate(
+        Category = cat_name,
+        Variable = var,
+        Sub_Level = gsub(paste0("^`?", var, "`?"), "", term),
+        N_Observations = nobs(model),
+        Crude_OR = round(estimate, 2),
+        CI_95_Lower = round(conf.low, 2),
+        CI_95_Upper = round(conf.high, 2),
+        p_value = round(p.value, 3)
+      ) %>%
+      select(Category, Variable, Sub_Level, N_Observations, Crude_OR, CI_95_Lower, CI_95_Upper, p_value)
+
+    results_list[[var]] <- res
+  }
+}
+
+final_table <- bind_rows(results_list)
+```
+
+## Analyse univariée
+
+```{r}
+#| label: tbl-univariee
+#| echo: false
+#| tbl-cap: "Résultats de l'analyse univariée par régression logistique (OR bruts, IC95 % et p-values pour l'ensemble des variables testées)."
+
+final_table %>%
+  gt() %>%
+  cols_label(
+    Category = "Catégorie", Variable = "Variable", Sub_Level = "Niveau",
+    N_Observations = "N", Crude_OR = "OR brut",
+    CI_95_Lower = "IC95 % inf.", CI_95_Upper = "IC95 % sup.", p_value = "p"
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_body(rows = p_value < 0.10)
+  ) %>%
+  opt_row_striping() %>%
+  tab_options(table.font.size = px(11))
+```
+
+## Analyse multivariée
+
+```{r}
+#| label: tbl-multivariee
+#| echo: false
+#| tbl-cap: "Modèle de régression logistique multivariée incluant les variables retenues à p < 0,10 en analyse univariée."
+
+vars_retenues <- final_table %>%
+  filter(p_value < 0.10) %>%
+  pull(Variable) %>%
+  unique()
+
+form <- as.formula(paste("Outcome_EBSL ~", paste0("`", vars_retenues, "`", collapse = " + ")))
+mod <- glm(form, data = df_clean, family = binomial)
+
+tidy(mod, exponentiate = TRUE, conf.int = TRUE) %>%
+  filter(term != "(Intercept)") %>%
+  transmute(
+    Variable = term,
+    `OR ajusté` = round(estimate, 2),
+    `IC95 % inf.` = round(conf.low, 2),
+    `IC95 % sup.` = round(conf.high, 2),
+    p = round(p.value, 3)
+  ) %>%
+  gt() %>%
+  opt_row_striping()
+```
+
+## Analyse de corrélation et puissance statistique
+
+```{r}
+#| label: tbl-correlation
+#| echo: false
+#| tbl-cap: "Test exact de Fisher entre les deux variables retenues, et puissance statistique associée à chacune."
+
+tab_marche <- as.matrix(table(df_clean$Outcome_EBSL, df_clean$Marche_Avant))
+tab_eau <- as.matrix(table(df_clean$Outcome_EBSL, df_clean$Distance_Eau_Inf100m))
+tab_correl <- table(df_clean$Distance_Eau_Inf100m, df_clean$Marche_Avant)
+
+fisher_correl <- fisher.test(tab_correl)
+
+power_fn <- function(tab) {
+  n0 <- sum(tab[, 1]); n1 <- sum(tab[, 2])
+  p0 <- tab[2, 1] / n0; p1 <- tab[2, 2] / n1
+  h <- ES.h(p0, p1)
+  pwr.2p2n.test(h = h, n1 = n0, n2 = n1, sig.level = 0.05)$power
+}
+
+data.frame(
+  Test = c("Corrélation Marche en avant × Distance à l'eau",
+           "Puissance — Marche en avant",
+           "Puissance — Distance à l'eau"),
+  Valeur = c(
+    paste0("OR = ", round(fisher_correl$estimate, 3),
+           " [", round(fisher_correl$conf.int[1], 2), " ; ",
+           round(fisher_correl$conf.int[2], 2), "], p = ",
+           round(fisher_correl$p.value, 3)),
+    paste0(round(power_fn(tab_marche) * 100, 1), " %"),
+    paste0(round(power_fn(tab_eau) * 100, 1), " %")
+  )
+) %>%
+  gt() %>%
+  opt_row_striping()
+```

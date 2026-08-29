@@ -205,7 +205,7 @@ Une analyse de contingence a mis en évidence une association significative entr
 Les élevages situés à proximité d'un point d'eau appliquaient moins fréquemment la marche en avant que les autres élevages.
 Cette association suggère l'existence d'un effet de confusion partiel entre ces deux variables, susceptible d'expliquer en partie la diminution de leur significativité observée dans le modèle multivarié.
 
-Les résultats détaillés des analyses univariée, multivariée et de corrélation sont présentés en @sec-Annexes-A.
+Les résultats détaillés des analyses univariée, multivariée et de corrélation sont présentés en @sec-annex1.
 
 Une analyse de puissance a *posteriori* a été réalisée pour les deux facteurs retenus à l'issue de l'analyse univariée.
 La puissance statistique obtenue était de 55,9 % pour la variable « marche en avant » et de 42,9 % pour la variable « présence d'un point d'eau à moins de 100 m ».
@@ -224,203 +224,205 @@ Le @tbl-ID présente la répartition détaillée des espèces bactériennes iden
 
 ::: {#tbl-ID}
 ```{r}
-#| label: Identification des souches bactériennes résistantes isolées
-
-library(readxl)
-library(dplyr)
-library(gt)
-library(scales)
-
-ID<- read_excel("analyse_donnees/DATA_Final.xlsx", sheet = 3)
-ID<-ID[,1:10]
-Culture<-read_excel("analyse_donnees/DATA_Final.xlsx", sheet = 1)
-Culture <- Culture %>%
-  filter(if_any(c(PN_ESBL, PN_CARBA), ~ . == 1))
-Culture<-Culture[, c(13, 9, 11)]
-
-ID<- left_join(Culture, ID, by = names(ID)[1])
-ID<- as.data.frame(ID)
-ID$contigs <- NULL
-ID$genome_size <- NULL
-ID$N50 <- NULL
-
-table_identification <- ID %>%
-  transmute(
-    isolat_ID,
-    #PN
-    'Culture_ESBL'  = ifelse(PN_ESBL == 1, "Positive", "Negative"),
-    'Culture_CARBA' = ifelse(PN_CARBA == 1, "Positive", "Negative"),
-    # MALDI
-    Identification_MALDI = `ID-maldi`,
-    Score_MALDI,
-
-    Niveau_MALDI = case_when(
-      is.na(Score_MALDI) ~ "ND",
-      #Score_MALDI == 0 ~ "Non Déterminé",
-      Score_MALDI >= 2.30 ~ "Espèce++",
-      Score_MALDI >= 2.00 ~ "Espèce",
-      Score_MALDI >= 1.70 ~ "Genre",
-      TRUE ~ "Non fiable"
-    ),
-
-    # MLST
-    Scheme = scheme,
-    ST,
-
-    # Gambit
-    Identification_Gambit = Gambit
-
-  )%>%
-    mutate(
-    groupe_espece = case_when(
-      grepl("coli", Identification_Gambit, ignore.case = TRUE) ~ "Escherichia coli",
-      grepl("oxytoca", Identification_Gambit, ignore.case = TRUE) ~ "Klebsiella oxytoca",
-      grepl("pneumoniae", Identification_Gambit, ignore.case = TRUE) ~ "Klebsiella pneumoniae",
-      TRUE ~ "Autre"
-    ),
-    groupe_espece = factor(
-      groupe_espece,
-      levels = c("Escherichia coli",
-                 "Klebsiella oxytoca", "Klebsiella pneumoniae", "Autre")
-    )
-  ) %>%
-  arrange(groupe_espece, ST, isolat_ID) %>%
-  # isolats retenus
-  slice(1:17)%>% 
-select(-groupe_espece)
-
-# Création de la figure-table
-fig_identification <- table_identification %>%
-
-  gt() %>%
-
-  tab_spanner(
-    label = md("**Culture Selective**"),
-    columns = c(
-      Culture_ESBL,
-      Culture_CARBA,
-    )
-  ) %>%
-
-  tab_spanner(
-    label = md("**MALDI-TOF**"),
-    columns = c(
-      Identification_MALDI,
+  #| label: Identification des souches bactériennes résistantes isolées
+  
+  library(readxl)
+  library(dplyr)
+  library(gt)
+  library(scales)
+  
+  ID<- read_excel("analyse_donnees/DATA_Final.xlsx", sheet = 3)
+  ID<-ID[,1:10]
+  Culture<-read_excel("analyse_donnees/DATA_Final.xlsx", sheet = 1)
+  Culture <- Culture %>%
+    filter(if_any(c(PN_ESBL, PN_CARBA), ~ . == 1))
+  Culture<-Culture[, c(13, 9, 11)]
+  
+  ID<- left_join(Culture, ID, by = names(ID)[1])
+  ID<- as.data.frame(ID)
+  ID$contigs <- NULL
+  ID$genome_size <- NULL
+  ID$N50 <- NULL
+  
+  table_identification <- ID %>%
+    transmute(
+      isolat_ID,
+      #PN
+      'Culture_ESBL'  = ifelse(PN_ESBL == 1, "Positive", "Negative"),
+      'Culture_CARBA' = ifelse(PN_CARBA == 1, "Positive", "Negative"),
+      # MALDI
+      Identification_MALDI = `ID-maldi`,
       Score_MALDI,
-      Niveau_MALDI
+      
+      Niveau_MALDI = case_when(
+        is.na(Score_MALDI) ~ "ND",
+        #Score_MALDI == 0 ~ "Non Déterminé",
+        Score_MALDI >= 2.30 ~ "Espèce++",
+        Score_MALDI >= 2.00 ~ "Espèce",
+        Score_MALDI >= 1.70 ~ "Genre",
+        TRUE ~ "Non fiable"
+      ),
+      
+      # MLST
+      Scheme = scheme,
+      ST,
+      
+      # Gambit
+      Identification_Gambit = Gambit
+      
+    )%>%
+    mutate(
+      groupe_espece = case_when(
+        grepl("coli", Identification_Gambit, ignore.case = TRUE) ~ "Escherichia coli",
+        grepl("oxytoca", Identification_Gambit, ignore.case = TRUE) ~ "Klebsiella oxytoca",
+        grepl("pneumoniae", Identification_Gambit, ignore.case = TRUE) ~ "Klebsiella pneumoniae",
+        TRUE ~ "Autre"
+      ),
+      groupe_espece = factor(
+        groupe_espece,
+        levels = c("Escherichia coli",
+                   "Klebsiella oxytoca", "Klebsiella pneumoniae", "Autre")
+      )
+    ) %>%
+    arrange(groupe_espece, ST, isolat_ID) %>%
+    # isolats retenus
+    slice(1:17)%>% 
+    select(-groupe_espece)
+  
+  # Création de la figure-table
+  fig_identification <- table_identification %>%
+    
+    gt() %>%
+    
+    tab_spanner(
+      label = md("**Culture Selective**"),
+      columns = c(
+        Culture_ESBL,
+        Culture_CARBA,
+      )
+    ) %>%
+    
+    tab_spanner(
+      label = md("**MALDI-TOF**"),
+      columns = c(
+        Identification_MALDI,
+        Score_MALDI,
+        Niveau_MALDI
+      )
+    ) %>%
+    
+    tab_spanner(
+      label = md("**MLST**"),
+      columns = c(
+        Scheme,
+        ST
+      )
+    ) %>%
+    
+    tab_spanner(
+      label = md("**Gambit**"),
+      columns = c(
+        Identification_Gambit
+      )
+    ) %>%
+    
+    cols_label(
+      isolat_ID = "Isolat",
+      Culture_ESBL="Culture",
+      Culture_CARBA="Culture",
+      Identification_MALDI = "Identification",
+      Score_MALDI = "Score",
+      Niveau_MALDI = "Niveau",
+      Scheme = "Schéma",
+      ST = "ST",
+      Identification_Gambit = "Identification"
+    ) %>%
+    tab_style(
+      style = list(
+        cell_fill(color = "grey85"),
+        cell_text(weight = "bold")
+      ),
+      locations = cells_body(
+        columns = c(Score_MALDI, Niveau_MALDI),
+        rows = Niveau_MALDI == "Non Déterminé"
+      )
+    ) %>%
+    tab_style(
+      style = list(
+        cell_fill(color = "#1a9850"),
+        cell_text(color = "white", weight = "bold")
+      ),
+      locations = cells_body(
+        columns = c(Score_MALDI, Niveau_MALDI),
+        rows = Niveau_MALDI == "Espèce++"
+      )
+    ) %>%
+    
+    tab_style(
+      style = list(
+        cell_fill(color = "#66bd63"),
+        cell_text(color = "white", weight = "bold")
+      ),
+      locations = cells_body(
+        columns = c(Score_MALDI, Niveau_MALDI),
+        rows = Niveau_MALDI == "Espèce"
+      )
+    ) %>%
+    
+    tab_style(
+      style = list(
+        cell_fill(color = "#fdae61"),
+        cell_text(color = "white", weight = "bold")
+      ),
+      locations = cells_body(
+        columns = c(Score_MALDI, Niveau_MALDI),
+        rows = Niveau_MALDI == "Genre"
+      )
+    ) %>%
+    
+    tab_style(
+      style = list(
+        cell_fill(color = "#d73027"),
+        cell_text(color = "white", weight = "bold")
+      ),
+      locations = cells_body(
+        columns = c(Score_MALDI, Niveau_MALDI),
+        rows = Niveau_MALDI == "Non fiable"
+      )
+    ) %>%
+    
+    
+    opt_row_striping() %>%
+    
+    #tab_header(
+    # title = md("**Identification des isolats par MALDI-TOF, MLST et Gambit**")
+    # ) %>%
+    
+    tab_source_note(
+      source_note = md(
+        "*Les niveaux de confiance MALDI sont basés sur les seuils d'identification Bruker Biotyper.*"
+      )
+    ) %>%
+    
+    tab_options(
+      table.font.size = px(12),
+      heading.align = "center",
+      table.width = pct(100)
     )
-  ) %>%
-
-  tab_spanner(
-    label = md("**MLST**"),
-    columns = c(
-      Scheme,
-      ST
-    )
-  ) %>%
-
-  tab_spanner(
-    label = md("**Gambit**"),
-    columns = c(
-      Identification_Gambit
-    )
-  ) %>%
-
-  cols_label(
-    isolat_ID = "Isolat",
-    Culture_ESBL="Culture",
-    Culture_CARBA="Culture",
-    Identification_MALDI = "Identification",
-    Score_MALDI = "Score",
-    Niveau_MALDI = "Niveau",
-    Scheme = "Schéma",
-    ST = "ST",
-    Identification_Gambit = "Identification"
-  ) %>%
-  tab_style(
-    style = list(
-      cell_fill(color = "grey85"),
-      cell_text(weight = "bold")
-    ),
-    locations = cells_body(
-      columns = c(Score_MALDI, Niveau_MALDI),
-      rows = Niveau_MALDI == "Non Déterminé"
-    )
-  ) %>%
-  tab_style(
-    style = list(
-      cell_fill(color = "#1a9850"),
-      cell_text(color = "white", weight = "bold")
-    ),
-    locations = cells_body(
-      columns = c(Score_MALDI, Niveau_MALDI),
-      rows = Niveau_MALDI == "Espèce++"
-    )
-  ) %>%
-
-  tab_style(
-    style = list(
-      cell_fill(color = "#66bd63"),
-      cell_text(color = "white", weight = "bold")
-  ),
-    locations = cells_body(
-      columns = c(Score_MALDI, Niveau_MALDI),
-      rows = Niveau_MALDI == "Espèce"
-    )
-  ) %>%
-
-  tab_style(
-    style = list(
-      cell_fill(color = "#fdae61"),
-      cell_text(color = "white", weight = "bold")
-    ),
-    locations = cells_body(
-      columns = c(Score_MALDI, Niveau_MALDI),
-      rows = Niveau_MALDI == "Genre"
-    )
-  ) %>%
-
-  tab_style(
-    style = list(
-      cell_fill(color = "#d73027"),
-      cell_text(color = "white", weight = "bold")
-    ),
-    locations = cells_body(
-      columns = c(Score_MALDI, Niveau_MALDI),
-      rows = Niveau_MALDI == "Non fiable"
-    )
-  ) %>%
-
-
-  opt_row_striping() %>%
-
-  #tab_header(
-   # title = md("**Identification des isolats par MALDI-TOF, MLST et Gambit**")
- # ) %>%
-
-  tab_source_note(
-    source_note = md(
-      "*Les niveaux de confiance MALDI sont basés sur les seuils d'identification Bruker Biotyper.*"
-    )
-  ) %>%
-
-  tab_options(
-    table.font.size = px(12),
-    heading.align = "center",
-    table.width = pct(100)
-  )
-
-if (knitr::is_latex_output()) {
-  # Réduction de la police de caractère en PDF
-  fig_identification %>%
-    tab_options(table.font.size = px(7))
-} else {
-  fig_identification
-}
+  
+  if (knitr::is_latex_output()) {
+    # Réduction de la police de caractère en PDF
+    fig_identification %>%
+      tab_options(table.font.size = px(7))
+  } else {
+    fig_identification
+  }
+  getwd()
 ```
-
-Tableau d'identification des souches bactériennes résistantes par MALDI-TOF, MLST et GAMBIT
+  
+  Tableau d'identification des souches bactériennes résistantes par MALDI-TOF, MLST et GAMBIT
 :::
+
 
 L'analyse MLST a montré qu'aucun schéma MLST n'était disponible pour la souche 62FP.B identifiée comme *Serratia fonticola*.
 Cela s'explique par l'absence, à ce jour, de schéma MLST de référence validé pour cette espèce dans les bases de données consultées.
@@ -433,9 +435,9 @@ Pour les deux souches appartenant au complexe *Enterobacter cloacae*, les résu
 Cette divergence peut être expliquée par la forte proximité génétique existant entre les différentes espèces composant le complexe *E. cloacae*, ce qui rend leur discrimination difficile, même à l'aide de méthodes moléculaires ou protéomiques avancées.
 
 Afin de résoudre ces discordances taxonomiques et d'obtenir une identification plus précise au niveau de l'espèce, une analyse phylogénomique complémentaire a été réalisée pour les souches initialement attribuées au complexe *Enterobacter cloacae*.
-Les résultats de cette analyse sont présentés dans la @fig-snippy.
+Les résultats de cette analyse sont présentés dans la @fig-ani.
 
-::: {#fig-snippy}
+::: {#fig-ani}
 ```{r}
 #| label: id_snippy
 if (!requireNamespace("BiocManager", quietly = TRUE))
@@ -580,7 +582,7 @@ Enfin, plusieurs isolats de *Klebsiella pneumoniae* et *Klebsiella oxytoca* part
 La co-localisation de ces gènes sur un même plasmide favorise leur co-sélection lors de l’exposition à l’une de ces familles d’antibiotiques et souligne le rôle potentiel des plasmides IncFIB dans la dissémination des déterminants de résistance au sein des entérobactéries.
 Toutefois, malgré la présence des gènes aph, aucun phénotype de résistance aux aminosides n’a été observé chez les isolats concernés, suggérant une absence d’expression ou une expression insuffisante de ces déterminants dans les conditions testées.
 
-## **É**tude phylogénomique de l’interconnexion des compartiments
+## Étude phylogénomique de l’interconnexion des compartiments
 
 ![Matrice de similitude (par calcul des SNPs) des *Escherichia coli* réunionnais.](images/fig12.png){#fig-den1}
 
