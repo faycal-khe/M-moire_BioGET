@@ -46,7 +46,7 @@ De plus, les gènes de résistance sont fréquemment portés par des éléments 
 
 Les mécanismes de résistance aux antibiotiques sont variés [@meca4]. Certaines bactéries produisent des enzymes capables d’inactiver les molécules antibiotiques avant qu’elles n’atteignent leur cible. C’est notamment le cas des β-lactamases, enzymes capables d’hydrolyser les antibiotiques appartenant à la famille des β-lactamines. D’autres mécanismes reposent sur la modification de la cible de l’antibiotique, la diminution de la perméabilité membranaire ou encore l’expulsion active du composé grâce à des pompes d’efflux. Plusieurs de ces mécanismes peuvent coexister au sein d’une même bactérie, conduisant à l’apparition de phénotypes de multirésistance.
 
-![Scèma des modes d'action des β-lactamines. Source: [@zotero-item-441].](images/fig2.png){#fig-méca}
+![Scèma des modes d'action des β-lactamines (Source: [@zotero-item-441]).](images/fig2.png){#fig-méca}
 
 Parmi les mécanismes de résistance les plus préoccupants figure la production de β-lactamases à spectre étendu (BLSE). Ces enzymes confèrent une résistance à un large éventail de β-lactamines, notamment aux céphalosporines de troisième génération. Ces dernières sont considérées comme des antibiotiques d’importance critique pour la médecine humaine, car elles constituent souvent l’une des dernières options thérapeutiques disponibles pour le traitement d’infections bactériennes graves. Afin de préserver leur efficacité, leur utilisation est strictement encadrée et limitée en médecine vétérinaire dans l'Union européenne et plus largement dans de nombreux pays à revenu élevé[@meca6].
 
