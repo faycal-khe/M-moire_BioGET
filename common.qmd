@@ -43,8 +43,20 @@ knitr::knit_hooks$set(
 
 # Add necessary packages here
 packages <- c(
-  "tidyverse", 
-  "gt"
+  "ape",
+  "aplot",
+  "broom",
+  "binom",
+  "cowplot",
+  "data.table",
+  "gt",
+  "openxls",
+  "phangorn",
+  "pwr",
+  "readxl",
+  "RColorBrewer",
+  "scales",
+  "tidyverse"
 )
 # Install them
 install_packages(packages)
