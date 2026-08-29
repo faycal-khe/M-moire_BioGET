@@ -156,7 +156,13 @@ tableau_final <- tableau_antibio %>%
     columns = c(Antibiotique, Charge_disque_ug, Diam_critique_S, Diam_critique_R)
   )
 
-tableau_final
+if (knitr::is_latex_output()) {
+  # Réduction de la police de caractère en PDF
+  tableau_final %>%
+    tab_options(table.font.size = px(8))
+} else {
+  tableau_final
+}
 
 ```
 

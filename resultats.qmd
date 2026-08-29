@@ -94,7 +94,7 @@ ggplot(etudes, aes(x = etude, y = prevalence, fill = etude)) +
 
 ```
 
-Graphique de l'évolution de la prévalence en entérobactérie résistante en fonction du temps. 
+Graphique de l'évolution de la prévalence en entérobactérie résistante en fonction du temps.
 :::
 
 Afin d'explorer un potentiel effet spatiale de la prévalence, la répartition des élevages positifs a été analysée à l'échelle des différentes zones de production porcine de l'île. La @fig-map2 montre la prévalence des élevages par région d’échantillonnage.
@@ -383,7 +383,13 @@ fig_identification <- table_identification %>%
     table.width = pct(100)
   )
 
-fig_identification
+if (knitr::is_latex_output()) {
+  # Réduction de la police de caractère en PDF
+  fig_identification %>%
+    tab_options(table.font.size = px(7))
+} else {
+  fig_identification
+}
 ```
 
 Tableau d"identification des souches bactériennes résistantes par MALDI-TOF, MLST et GAMBIT
