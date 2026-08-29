@@ -6,11 +6,11 @@ Au cours de la période d’étude, un total de 249 échantillons a été collec
 
 La @fig-map1 présente la stratégie d'échantillonnage retenue pour cette étude.
 
-![Carte d'échantillonage par commune](images/fig5.png){#fig-map1}
+![Carte de l'échantillonage par commune.](images/fig5.png){#fig-map1}
 
 Aucun résultat positif n'a été obtenu par la technique d'écouvillonnage, cette dernière étant probablement d'une sensibilité insuffisante dans un contexte comme celui de La Réunion.
 
-Ces résultats permettent d'estimer une prévalence en élevage de 13,5 % (IC95 % : \[7,5 ; 22,8\]). Cette prévalence est significativement inférieure à celles rapportées dans deux études antérieures menées à La Réunion, qui estimaient respectivement une prévalence de 53,3 % (IC95 % : \[35,1 ; 71,5\]) des élevages porcins positifs pour des entérobactéries productrices de BLSE (XXX) et de 50,0 % (IC95 % : \[31,3 ; 68,7\]) pour les élevages porcins hébergeant des E. coli producteurs de BLSE (XXX). Les comparaisons de prévalence, réalisées à l’aide d’un test exact binomial de comparaison de proportions, ont mis en évidence une différence statistiquement significative avec les deux études (p\* \< 0,001 pour les deux comparaison; @fig-stat1 ). Ces résultats suggèrent une diminution marquée de la prévalence des élevages porcins positifs pour les BLSE à La Réunion au cours des huit dernières années, avec une prévalence environ quatre fois plus faible que celle rapportée précédemment.
+Ces résultats permettent d'estimer une prévalence en élevage de 13,5 % (IC95 % : \[7,5 ; 22,8\]). Cette prévalence est significativement inférieure à celles rapportées dans deux études antérieures menées à La Réunion, qui estimaient respectivement une prévalence de 53,3 % (IC95 % : \[35,1 ; 71,5\]) des élevages porcins positifs pour des entérobactéries productrices de BLSE [@Farm2018] et de 50,0 % (IC95 % : \[31,3 ; 68,7\]) pour les élevages porcins hébergeant des E. coli producteurs de BLSE [@miltgenOneHealthCompartmental2022]. Les comparaisons de prévalence, réalisées à l’aide d’un test exact binomial de comparaison de proportions, ont mis en évidence une différence statistiquement significative avec les deux études (p\* \< 0,001 pour les deux comparaison; @fig-stat1 ). Ces résultats suggèrent une diminution marquée de la prévalence des élevages porcins positifs pour les BLSE à La Réunion au cours des huit dernières années, avec une prévalence environ quatre fois plus faible que celle rapportée précédemment.
 
 ::: {#fig-stat1}
 ```{r}
@@ -44,8 +44,8 @@ test2 <- prop.test(
 )
 
 etudes <- data.frame(
-  etude = factor(c("Étude 1", "Étude 2", "Notre étude"),
-                 levels = c("Étude 1", "Étude 2", "Notre étude")),
+  etude = factor(c("Gay et al (2016)", "Miltgen et al (2018)", "Notre étude (2026)"),
+                 levels = c("Gay et al (2016)", "Miltgen et al (2018)", "Notre étude (2026)")),
   prevalence = c(p1, p2, x/n),
   n = c(n1, n2, n)
 )
@@ -94,12 +94,12 @@ ggplot(etudes, aes(x = etude, y = prevalence, fill = etude)) +
 
 ```
 
-omparaison des prévalence en fonction des étude ; études 1(XXX) études 2 (XXX).
+Graphique de l'évolution de la prévalence en entérobactérie résistante en fonction du temps. 
 :::
 
 Afin d'explorer un potentiel effet spatiale de la prévalence, la répartition des élevages positifs a été analysée à l'échelle des différentes zones de production porcine de l'île. La @fig-map2 montre la prévalence des élevages par région d’échantillonnage.
 
-![Carte de la prévalence par commune](images/fig6.png){#fig-map2}
+![Carte de la prévalence par commune.](images/fig6.png){#fig-map2}
 
 La majorité des zones échantillonnées présentaient des proportions d'élevages positifs relativement faibles et comparables, généralement comprises entre 10 et 20 %. La zone Saint-André/Saint-Benoît présentait la prévalence apparente la plus élevée, avec 50 % d'élevages positifs (3/6), alors que les autres secteurs affichaient des valeurs plus faibles.
 
@@ -174,7 +174,7 @@ ggplot(df,
   
 ```
 
-Comparaison de la prévalence par commune.
+Graphique de la prévalence par commune.
 :::
 
 ## Facteurs de risque
@@ -463,7 +463,7 @@ ani2 <- ggplot(ani) +
 tr2+ani2
 ```
 
-Identification Entérocomplxe.
+Matrice de similitude (méthode ANI) pour l'identification taxonomique des souches appartenant au complexe *Enterobacter cloacae*.
 :::
 
 Cette approche a permis d'affiner l'identification taxonomique des isolats étudiés. Ainsi, la souche 29FP.B a été rattachée à l'espèce *Enterobacter sichuanensis*, tandis que la souche 13FP.B a été identifiée comme appartenant à l'espèce *Enterobacter ludwigii*.
@@ -472,7 +472,7 @@ Cette approche a permis d'affiner l'identification taxonomique des isolats étud
 
 Les 16 antibiogramme ont été réalisé, puis les résultats ont été compilé en @fig-pheno
 
-![Heatmaps des profil de résistance des souches isolées](images/fig10.png){#fig-pheno}
+![Heatmaps des profils de résistance des souches isolées.](images/fig10.png){#fig-pheno}
 
 De manière générale, cette analyse met en évidence une résistance élevée aux β-lactamines parmi les isolats étudiés. La majorité des souches présentaient une résistance à l'amoxicilline et à la ticarcilline, confirmant un phénotype compatible avec la production de β-lactamases à spectre étendu (BLSE). La résistance à l'amoxicilline-acide clavulanique observée uniquement chez les isolats appartenant au complexe *Enterobacter cloacae* était attendue, cette espèce présentant une résistance intrinsèque à cette association du fait de la production d'une céphalosporinase chromosomique de type AmpC, faiblement inhibée par l'acide clavulanique.
 
@@ -492,7 +492,7 @@ Enfin, 11, soit 68,75 %, des souches isolées sont multirésistantes, c’est-à
 
 ## Analyse du génotype de résistance (gènes détectés)
 
-![Profil de résistance](images/fig11.png){#fig-geno}
+![Heatmaps des gènes de résistances indentifiés.](images/fig11.png){#fig-geno}
 
 La souche 04FP.B présentait un profil génétique atypique associé à une qualité d’assemblage insuffisante. La présence simultanée de nombreux déterminants chromosomiques et plasmidiques incompatibles avec l’identité taxonomique attribuée suggérait une contamination de l’échantillon ou de l’assemblage. Cette souche a donc été exclue des analyses génomiques ultérieures. Le criblage génomique des autres isolats a mis en évidence une importante diversité de déterminants de résistance ainsi qu’une distribution variable entre chromosome et plasmides selon les espèces bactériennes.
 
@@ -500,20 +500,18 @@ Chez les isolats d'*E. coli*, le profil génotypique est dominé par la détecti
 
 L’un des isolats d’*Enterobacter cloacae* portait également le gène de carbapénémase blaIMI-1. Bien que localisé sur le chromosome, ce gène ne peut être considéré comme intrinsèque. Il est associé à l’élément intégratif mobile EcloIMEX, connu pour favoriser l’acquisition et la perte de ce déterminant au sein du complexe *E. cloacae*. La détection de blaIMI-1 explique le phénotype de résistance observé vis-à-vis des carbapénèmes. Sa présence dans un isolat issu d’un élevage porcin apparaît particulièrement remarquable compte tenu de l’absence d’utilisation des carbapénèmes en production porcine. Cela suggère que ce déterminant pourrait résulter d’échanges entre compartiments écologiques et constitue un marqueur potentiel de circulation intersectorielle de bactéries ou de gènes de résistance.
 
-Chez les isolats de *Klebsiella oxytoca*, le gène chromosomique blaOXY-1-9 expliquait le profil de résistance intrinsèque aux β-lactamines, tandis que blaCTX-M-15 était associé au phénotype BLSE. Des déterminants additionnels tels que tetD, qnrB1 et le système d’efflux oqxAB contribuaient respectivement aux résistances aux tétracyclines et aux fluoroquinolones observées chez certains isolats.
-
 Enfin, plusieurs isolats de *Klebsiella pneumoniae* et *Klebsiella oxytoca* partageaient un plasmide de type IncFIB portant notamment blaCTX-M-15, blaTEM-1, dfrA14, qnrS1, aph(3'')-Ib, aph(6)-Id et sul2. La co-localisation de ces gènes sur un même plasmide favorise leur co-sélection lors de l’exposition à l’une de ces familles d’antibiotiques et souligne le rôle potentiel des plasmides IncFIB dans la dissémination des déterminants de résistance au sein des entérobactéries. Toutefois, malgré la présence des gènes aph, aucun phénotype de résistance aux aminosides n’a été observé chez les isolats concernés, suggérant une absence d’expression ou une expression insuffisante de ces déterminants dans les conditions testées.
 
 ## Etude phylogénomique de l’interconnexion des compartiements
 
-![TBD](images/fig12.png){#fig-den1}
+![Matrice de similitude (par calcul des SNPs) des *Escherichia coli* réunionnais.](images/fig12.png){#fig-den1}
 
 La @fig-den1 met évidence de proximité génétique marquée entre les isolats d’*Escherichia coli* ST58 issus des élevages porcins et ceux provenant des autres compartiments étudiés. Ce résultat est cohérent avec les données de la littérature, qui décrivent le ST58 comme une lignée largement distribuée dans différents réservoirs animaux, environnementaux et humains. Son caractère ubiquiste suggère une capacité d'adaptation à des hôtes et environnements variés, favorisant sa dissémination entre compartiments.
 
-![ressemblance](images/fig13.png){#fig-den2}
+![Matrice de similitude (par calcul des SNPs) des *Klebsiella* réunionnais.](images/fig13.png){#fig-den2}
 
 La @fig-den2 met en évidence une forte proximité génétique entre l'ensemble des isolats de *Klebsiella* pneumoniae, avec des distances génomiques inférieures à 100 SNPs. Cette faible divergence suggère l'existence d'une origine commune récente ou la circulation d'un même pool génétique à l'échelle de l'île. Ainsi, Les isolats porcins ne constituent pas une lignée spécifique mais s'intègrent dans un ensemble plus large de souches circulant à La Réunion, suggérant que le compartiment porcin participe à une dynamique insulaire de circulation de *Klebsiella* plutôt qu'à un réservoir indépendant. Par ailleurs, une proximité génétique particulièrement marquée est observée entre les isolats appartenant au ST4083 issus des compartiments porcin et avicole, ce qui pourrait refléter l'existence d'un réservoir commun ou de voies de diffusion partagées entre ces deux compartiments. Ces observations appuient l'hypothèse d'une circulation à l'échelle de l'île plutôt que d'une population bactérienne strictement confinée au secteur porcin.
 
-![ressemblance mais pas vraiment](images/fig14.png){#fig-den3}
+![Matrice de similitude (par calcul des SNPs) des complexe *Enterobacter cloacae* réunionnais](images/fig14.png){#fig-den3}
 
 La @fig-den3 suggère que, contrairement aux observations réalisées pour *Escherichia coli* et *Klebsiella spp.*, les isolats porcins appartenant au complexe *Enterobacter cloacae* ne présentent pas de proximité génétique marquée avec les souches issues des autres compartiments étudiés. Les isolats porcins se regroupent au sein de lignées phylogénétiques distinctes et ne partagent pas de faibles distances SNP avec les isolats humains, animaux ou environnementaux inclus dans l'analyse. Cette absence de similarité génétique suggère une circulation plus limitée de ces lignées entre les différents compartiments à l'échelle de La Réunion. Les résultats obtenus indiquent ainsi que les isolats porcins du complexe E. cloacae pourraient être associés à un réservoir davantage spécifique au compartiment porcin. À l'inverse, les isolats d'*E. coli* et de *Klebsiella spp.* Apparaissent plus étroitement liés à des souches provenant de multiples hôtes, suggérant une circulation plus importante entre les différents compartiments étudiés.

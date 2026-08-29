@@ -49,7 +49,7 @@ csquotes: true
 # Bibliographie
 bibliography: references.bib
 # Style bibliographique : APA 7
-csl: apa
+csl: style_bioget
 # Table des matières
 toc: true
 # Profondeur : titres 1 à 3
