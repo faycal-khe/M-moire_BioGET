@@ -82,6 +82,8 @@ En complément, 13 élevages appartenant au schéma de sélection porcin ont ét
 En raison des exigences élevées de biosécurité appliquées dans ces élevages et afin de limiter les interventions extérieures, des échantillons déjà prélevés dans le cadre des contrôles sanitaires et réglementaires ont été réutilisés.
 Pour ces exploitations, des échantillons de fèces provenant de porcs charcutiers et de truies gestantes étaient disponibles et ont été intégrés à l’analyse.
 
+Dans cette étude, une exploitation était considérée comme positive dès lors qu'au moins un isolat appartenant à l'ordre des *Enterobacterales* était obtenu sur milieu sélectif ChromID® ESBL ou Carba.
+
 Les analyses statistiques ont été réalisées à l’aide du logiciel R (version 4.6.0).
 Les prévalences ont été calculées comme le rapport entre le nombre d’élevages positifs et le nombre total d’élevages échantillonnés.
 Les intervalles de confiance à 95 % ont été estimés selon la méthode binomiale exacte de Clopper-Pearson à l’aide de la fonction binom.test() du package stats.

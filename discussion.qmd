@@ -66,10 +66,13 @@ Les analyses plasmidiques ont également montré que plusieurs isolats de *Kleb
 Cette observation suggère la circulation d'un élément génétique mobile commun au sein de différentes espèces bactériennes.
 Les plasmides IncF sont reconnus comme des vecteurs majeurs de diffusion des BLSE et jouent un rôle central dans la propagation de nombreux gènes de résistance[@di1].
 
-La détection, chez les *Klebsiella*, des gènes aph(3'')-Ib et aph(6)-Id ne concorde pas avec la sensibilité aux aminosides observée chez ce groupe.
-Cette discordance entre profil génotypique et phénotype souligne l'importance de ne pas assimiler la seule présence d'un déterminant génétique à son expression fonctionnelle.
-Plusieurs hypothèses peuvent l'expliquer : absence d'expression du gène (silencing transcriptionnel, mutation du promoteur), portage sur un élément génétique non fonctionnel, ou régulation épigénétique telle que la méthylation.
-Ces résultats appellent à approfondir l'étude des mécanismes sous-jacents à l'expression phénotypique de l'antibiorésistance [@geno].
+Les gènes aph(3'')-Ib et aph(6)-Id codent des enzymes (phosphotransférases) qui inactivent spécifiquement la streptomycine.
+Or cet antibiotique ne faisait pas partie des molécules testées dans notre panel, la gentamicine ayant été choisie comme représentante de la famille des aminosides.
+Ces deux molécules appartiennent cependant à des sous-groupes chimiques différents au sein des aminosides : la gentamicine, contrairement à la streptomycine, n'est pas reconnue par ces enzymes et ne peut donc pas être inactivée par elles.
+Il ne s'agit donc pas d'une discordance entre génotype et phénotype, mais simplement d'une inadéquation entre le gène détecté et l'antibiotique testé.
+
+Ces résultats suggèrent qu'il serait pertinent, dans de futurs travaux, d'élargir notre panel d'antibiogramme à la streptomycine, afin de vérifier si les gènes aph(3'')-Ib et aph(6)-Id détectés confèrent effectivement une résistance phénotypique à cette molécule au sein des souches réunionnaises.
+De même, la méthode utilisée pour évaluer la sensibilité à la colistine devrait être révisée : la diffusion en gélose n'étant pas adaptée à cette molécule en raison de son mode d'action (formation de pores dans la membrane bactérienne), une confirmation par détermination de la concentration minimale inhibitrice en microdilution en bouillon,méthode de référence actuellement recommandée, serait nécessaire pour valider les profils observés dans cette étude.
 
 Enfin, la détection du gène blaIMI-1 chez *Enterobacter sichuanensis* est particulièrement intéressante.
 Bien que localisé sur le chromosome, ce déterminant ne peut être considéré comme une résistance intrinsèque.

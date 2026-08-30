@@ -419,10 +419,9 @@ Le @tbl-ID présente la répartition détaillée des espèces bactériennes iden
   }
   getwd()
 ```
-  
-  Tableau d'identification des souches bactériennes résistantes par MALDI-TOF, MLST et GAMBIT
-:::
 
+Tableau d'identification des souches bactériennes résistantes par MALDI-TOF, MLST et GAMBIT
+:::
 
 L'analyse MLST a montré qu'aucun schéma MLST n'était disponible pour la souche 62FP.B identifiée comme *Serratia fonticola*.
 Cela s'explique par l'absence, à ce jour, de schéma MLST de référence validé pour cette espèce dans les bases de données consultées.
@@ -567,6 +566,7 @@ Chez les isolats d'*E. coli*, le profil génotypique est dominé par la détecti
 Le gène blaCTX-M-15 constituait le principal déterminant associé au phénotype BLSE observé.
 Par ailleurs, plusieurs isolats appartenant au ST58 présentaient des combinaisons distinctes de gènes de résistance malgré une même affiliation clonale.
 Cette variabilité suggère une importante plasticité génomique au sein de cette lignée, compatible avec la capacité d’adaptation fréquemment décrite pour ce clone largement distribué à l’échelle internationale.
+
 Chez les isolats du complexe *Enterobacter cloacae*, la présence des gènes blaACT, fosA et oqxAB correspondait au profil génétique classiquement observé dans ce groupe bactérien.
 Les gènes blaACT codent des céphalosporinases chromosomiques dont l’expression basale est généralement suffisante pour conférer une résistance aux aminopénicillines, sans nécessairement entraîner une résistance aux céphalosporines de troisième génération.
 Une telle résistance apparaît habituellement à la suite d’une surexpression ou d’une dérégulation de ces enzymes.

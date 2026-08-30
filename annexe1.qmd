@@ -2,7 +2,6 @@
 
 # Données d'analyse de facteur de risque {#sec-annex1}
 
-
 ```{r}
 #| label: setup-annexe
 #| echo: false
@@ -100,14 +99,15 @@ final_table <- bind_rows(results_list)
 ```{r}
 #| label: tbl-univariee
 #| echo: false
-#| tbl-cap: "Résultats de l'analyse univariée par régression logistique (OR bruts, IC95 % et p-values pour l'ensemble des variables testées)."
+#| tbl-cap: "Résultats de l'analyse univariée par régression logistique."
+#| tbl-pos: "H"
 
-final_table %>%
+x=final_table %>%
   gt() %>%
   cols_label(
     Category = "Catégorie", Variable = "Variable", Sub_Level = "Niveau",
     N_Observations = "N", Crude_OR = "OR brut",
-    CI_95_Lower = "IC95 % inf.", CI_95_Upper = "IC95 % sup.", p_value = "p"
+    CI_95_Lower = "IC95 % inf.", CI_95_Upper = "IC95 % sup.", p_value = "p*"
   ) %>%
   tab_style(
     style = cell_text(weight = "bold"),
@@ -115,6 +115,13 @@ final_table %>%
   ) %>%
   opt_row_striping() %>%
   tab_options(table.font.size = px(11))
+if (knitr::is_latex_output()) {
+  # Réduction de la police de caractère en PDF
+  x %>%
+    tab_options(table.font.size = px(8))
+} else {
+  x
+}
 ```
 
 ## Analyse multivariée
@@ -122,7 +129,8 @@ final_table %>%
 ```{r}
 #| label: tbl-multivariee
 #| echo: false
-#| tbl-cap: "Modèle de régression logistique multivariée incluant les variables retenues à p < 0,10 en analyse univariée."
+#| tbl-cap: "Modèle de régression logistique multivariée."
+#| tbl-pos: "H"
 
 vars_retenues <- final_table %>%
   filter(p_value < 0.10) %>%
@@ -132,17 +140,25 @@ vars_retenues <- final_table %>%
 form <- as.formula(paste("Outcome_EBSL ~", paste0("`", vars_retenues, "`", collapse = " + ")))
 mod <- glm(form, data = df_clean, family = binomial)
 
-tidy(mod, exponentiate = TRUE, conf.int = TRUE) %>%
+t=tidy(mod, exponentiate = TRUE, conf.int = TRUE) %>%
   filter(term != "(Intercept)") %>%
   transmute(
     Variable = term,
     `OR ajusté` = round(estimate, 2),
     `IC95 % inf.` = round(conf.low, 2),
     `IC95 % sup.` = round(conf.high, 2),
-    p = round(p.value, 3)
+    'p*' = round(p.value, 3)
   ) %>%
   gt() %>%
   opt_row_striping()
+
+if (knitr::is_latex_output()) {
+  # Réduction de la police de caractère en PDF
+  t %>%
+    tab_options(table.font.size = px(8))
+} else {
+  t
+}
 ```
 
 ## Analyse de corrélation et puissance statistique
@@ -151,6 +167,7 @@ tidy(mod, exponentiate = TRUE, conf.int = TRUE) %>%
 #| label: tbl-correlation
 #| echo: false
 #| tbl-cap: "Test exact de Fisher entre les deux variables retenues, et puissance statistique associée à chacune."
+#| tbl-pos: "H"
 
 tab_marche <- as.matrix(table(df_clean$Outcome_EBSL, df_clean$Marche_Avant))
 tab_eau <- as.matrix(table(df_clean$Outcome_EBSL, df_clean$Distance_Eau_Inf100m))
@@ -165,14 +182,14 @@ power_fn <- function(tab) {
   pwr.2p2n.test(h = h, n1 = n0, n2 = n1, sig.level = 0.05)$power
 }
 
-data.frame(
+h=data.frame(
   Test = c("Corrélation Marche en avant × Distance à l'eau",
            "Puissance — Marche en avant",
            "Puissance — Distance à l'eau"),
   Valeur = c(
     paste0("OR = ", round(fisher_correl$estimate, 3),
            " [", round(fisher_correl$conf.int[1], 2), " ; ",
-           round(fisher_correl$conf.int[2], 2), "], p = ",
+           round(fisher_correl$conf.int[2], 2), "], p* = ",
            round(fisher_correl$p.value, 3)),
     paste0(round(power_fn(tab_marche) * 100, 1), " %"),
     paste0(round(power_fn(tab_eau) * 100, 1), " %")
@@ -180,4 +197,12 @@ data.frame(
 ) %>%
   gt() %>%
   opt_row_striping()
+
+if (knitr::is_latex_output()) {
+  # Réduction de la police de caractère en PDF
+  h %>%
+    tab_options(table.font.size = px(8))
+} else {
+  h
+}
 ```
