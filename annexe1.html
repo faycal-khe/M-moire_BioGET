@@ -219,11 +219,11 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="analyse-univariée" class="level2" data-number="A.1">
 <h2 data-number="A.1" class="anchored" data-anchor-id="analyse-univariée"><span class="header-section-number">A.1</span> Analyse univariée</h2>
-<div class="cell">
-<div id="tbl-univariee" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<div class="cell" data-tbl-pos="H">
+<div id="tbl-univariee" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-pos="H">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-univariee-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tableau&nbsp;A.1: Résultats de l’analyse univariée par régression logistique (OR bruts, IC95 % et p-values pour l’ensemble des variables testées).
+Tableau&nbsp;A.1: Résultats de l’analyse univariée par régression logistique.
 </figcaption>
 <div aria-describedby="tbl-univariee-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -687,7 +687,7 @@ Tableau&nbsp;A.1: Résultats de l’analyse univariée par régression logistiqu
 <th id="Crude_OR" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">OR brut</th>
 <th id="CI_95_Lower" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">IC95 % inf.</th>
 <th id="CI_95_Upper" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">IC95 % sup.</th>
-<th id="p_value" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">p</th>
+<th id="p_value" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">p*</th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
@@ -1243,11 +1243,11 @@ Tableau&nbsp;A.1: Résultats de l’analyse univariée par régression logistiqu
 </section>
 <section id="analyse-multivariée" class="level2" data-number="A.2">
 <h2 data-number="A.2" class="anchored" data-anchor-id="analyse-multivariée"><span class="header-section-number">A.2</span> Analyse multivariée</h2>
-<div class="cell">
-<div id="tbl-multivariee" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<div class="cell" data-tbl-pos="H">
+<div id="tbl-multivariee" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-pos="H">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-multivariee-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tableau&nbsp;A.2: Modèle de régression logistique multivariée incluant les variables retenues à p &lt; 0,10 en analyse univariée.
+Tableau&nbsp;A.2: Modèle de régression logistique multivariée.
 </figcaption>
 <div aria-describedby="tbl-multivariee-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -1708,7 +1708,7 @@ Tableau&nbsp;A.2: Modèle de régression logistique multivariée incluant les va
 <th id="OR-ajusté" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">OR ajusté</th>
 <th id="IC95-%-inf." class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">IC95 % inf.</th>
 <th id="IC95-%-sup." class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">IC95 % sup.</th>
-<th id="p" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">p</th>
+<th id="p*" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">p*</th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
@@ -1717,14 +1717,14 @@ Tableau&nbsp;A.2: Modèle de régression logistique multivariée incluant les va
 <td class="gt_row gt_right" headers="OR ajusté">2.83</td>
 <td class="gt_row gt_right" headers="IC95 % inf.">0.58</td>
 <td class="gt_row gt_right" headers="IC95 % sup.">12.38</td>
-<td class="gt_row gt_right" headers="p">0.174</td>
+<td class="gt_row gt_right" headers="p*">0.174</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left gt_striped" headers="Variable">Marche_Avant</td>
 <td class="gt_row gt_right gt_striped" headers="OR ajusté">0.30</td>
 <td class="gt_row gt_right gt_striped" headers="IC95 % inf.">0.07</td>
 <td class="gt_row gt_right gt_striped" headers="IC95 % sup.">1.19</td>
-<td class="gt_row gt_right gt_striped" headers="p">0.082</td>
+<td class="gt_row gt_right gt_striped" headers="p*">0.082</td>
 </tr>
 </tbody>
 </table>
@@ -1738,8 +1738,8 @@ Tableau&nbsp;A.2: Modèle de régression logistique multivariée incluant les va
 </section>
 <section id="analyse-de-corrélation-et-puissance-statistique" class="level2" data-number="A.3">
 <h2 data-number="A.3" class="anchored" data-anchor-id="analyse-de-corrélation-et-puissance-statistique"><span class="header-section-number">A.3</span> Analyse de corrélation et puissance statistique</h2>
-<div class="cell">
-<div id="tbl-correlation" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<div class="cell" data-tbl-pos="H">
+<div id="tbl-correlation" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-pos="H">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-correlation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Tableau&nbsp;A.3: Test exact de Fisher entre les deux variables retenues, et puissance statistique associée à chacune.
@@ -2206,7 +2206,7 @@ Tableau&nbsp;A.3: Test exact de Fisher entre les deux variables retenues, et pui
 <tbody class="gt_table_body">
 <tr class="odd">
 <td class="gt_row gt_left" headers="Test">Corrélation Marche en avant × Distance à l'eau</td>
-<td class="gt_row gt_left" headers="Valeur">OR = 0.235 [0.06 ; 0.95], p = 0.034</td>
+<td class="gt_row gt_left" headers="Valeur">OR = 0.235 [0.06 ; 0.95], p* = 0.034</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left gt_striped" headers="Test">Puissance — Marche en avant</td>
