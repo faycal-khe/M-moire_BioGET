@@ -219,7 +219,7 @@ L'absence de significativité statistique après ajustement doit donc être inte
 ## Identification des souches résistantes
 
 Parmi les 16 souches isolées, cinq appartenaient au genre *Klebsiella*, dont deux *Klebsiella oxytoca* et trois *Klebsiella pneumoniae*.
-Huit souches ont été identifiées comme *Escherichia coli*, une souche comme Serratia fonticola et deux souches comme appartenant au complexe *Enterobacter cloacae*.
+Huit souches ont été identifiées comme *Escherichia coli*, une souche comme *Serratia fonticola* et deux souches comme appartenant au complexe *Enterobacter cloacae*.
 Le @tbl-ID présente la répartition détaillée des espèces bactériennes identifiées.
 
 ::: {#tbl-ID}
@@ -417,7 +417,6 @@ Le @tbl-ID présente la répartition détaillée des espèces bactériennes iden
   } else {
     fig_identification
   }
-  getwd()
 ```
 
 Tableau d'identification des souches bactériennes résistantes par MALDI-TOF, MLST et GAMBIT
@@ -439,10 +438,6 @@ Les résultats de cette analyse sont présentés dans la @fig-ani.
 ::: {#fig-ani}
 ```{r}
 #| label: id_snippy
-if (!requireNamespace("BiocManager", quietly = TRUE))
-+     install.packages("BiocManager")
-
-BiocManager::install("ggtree")
 library(ggplot2)
 library(ggtree)
 library(ape)
@@ -476,6 +471,7 @@ id_df <- data.frame(label = tip_order, id = seq_along(tip_order))
 id_lookup <- setNames(id_df$id, id_df$label)
 tr2 <- tr %<+% id_df +
   geom_tiplab(aes(label = paste0(label,":",id)), size = 2,align = TRUE, linetype = "dotted",hjust=0) +
+  #geom_nodepoint(aes(shape=as.numeric(label)>90),size=4)+
   hexpand(2)
 ani$from2 <- factor(ani$from2, levels = get_tips(phy))# met les axes dans le bon ordre
 ani$to2   <- factor(ani$to2,   levels = get_tips(phy))#
@@ -534,8 +530,7 @@ La résistance au céfotaxime confirme ainsi le phénotype BLSE recherché et la
 En revanche, les profils obtenus pour le céfépime et la ceftazidime apparaissaient plus hétérogènes selon les isolats.
 Cette variabilité pourrait refléter des différences dans le type de β-lactamase portée, son niveau d’expression ou la présence de mécanismes de résistance complémentaires, conduisant à des profils de sensibilité distincts entre les souches.
 
-Enfin, l'ensemble des isolats de *Klebsiella* présentaient une résistance au triméthoprime-sulfaméthoxazole, non retrouvé chez les autres souches.
-Cette résistance n'est pas décrite comme un caractère intrinsèque chez ce genre bactérien et résulte généralement de l'acquisition de déterminants génétiques spécifiques.
+Enfin, l'ensemble des isolats de *Klebsiella* présentaient une résistance au triméthoprime-sulfaméthoxazole, non retrouvée chez les autres souches. Cette résistance n'est pas décrite comme un caractère intrinsèque chez ce genre bactérien et résulte généralement de l'acquisition de déterminants génétiques spécifiques.
 
 Les autres familles d'antibiotiques présentaient des profils de résistance plus variables.
 Des résistances aux fluoroquinolones, notamment à la ciprofloxacine et à l'ofloxacine, ont été observées chez plusieurs isolats.
@@ -545,13 +540,13 @@ La sensibilité à la gentamicine demeurait globalement conservée dans l'ensemb
 Concernant la colistine, une proportion importante d'isolats a été classée dans la catégorie « intermédiaire », tandis qu'un isolat présentait un profil résistant.
 Ces résultats doivent néanmoins être interprétés avec prudence.
 En effet, la méthode utilisée dans cette étude n'est pas considérée comme la plus adaptée à l'évaluation de la sensibilité à la colistine et peut conduire à des erreurs de classification.
-Cela est dû au mode d'action particulier de la colistine (formation de pores dans les membranes bactérienne).
+Cela est dû au mode d'action particulier de la colistine (formation de pores dans les membranes bactériennes).
 Les recommandations actuelles privilégient la détermination de la concentration minimale inhibitrice (CMI) par microdilution en bouillon, qui constitue la méthode de référence pour cet antibiotique.
 Par conséquent, les profils observés pour la colistine nécessiteraient une confirmation par une méthode standardisée avant toute conclusion définitive.
 
-Enfin, 11, soit 68,75 %, des souches isolées sont multirésistantes, c’est-à-dire qu’elles présentent une résistance à au moins un antibiotique dans au moins trois classes d’antibiotiques différentes.
+Enfin, 11 souches (68,75 %) sont multirésistantes, c’est-à-dire qu’elles présentent une résistance à au moins un antibiotique dans au moins trois classes d’antibiotiques différentes.
 Les profils de résistance observés associaient plusieurs classes d’antibiotiques, témoignant d’une accumulation de déterminants de résistance au sein d’une même souche.
-Cela constitue un signal fort de santé publique
+Cela constitue un signal fort de santé publique.
 
 ## Analyse du génotype de résistance (gènes détectés)
 
@@ -562,23 +557,23 @@ La présence simultanée de nombreux déterminants chromosomiques et plasmidique
 Cette souche a donc été exclue des analyses génomiques ultérieures.
 Le criblage génomique des autres isolats a mis en évidence une importante diversité de déterminants de résistance ainsi qu’une distribution variable entre chromosome et plasmides selon les espèces bactériennes.
 
-Chez les isolats d'*E. coli*, le profil génotypique est dominé par la détection quasi-systématique de blaCTX-M-15 et de qnrS1, tous deux portés par le chromosome.
-Le gène blaCTX-M-15 constituait le principal déterminant associé au phénotype BLSE observé.
+Chez les isolats d'*E. coli*, le profil génotypique est dominé par la détection quasi-systématique de *bla*CTX-M-15 et de *qnrS1*, tous deux portés par le chromosome.
+Le gène *bla*CTX-M-15 constituait le principal déterminant associé au phénotype BLSE observé.
 Par ailleurs, plusieurs isolats appartenant au ST58 présentaient des combinaisons distinctes de gènes de résistance malgré une même affiliation clonale.
 Cette variabilité suggère une importante plasticité génomique au sein de cette lignée, compatible avec la capacité d’adaptation fréquemment décrite pour ce clone largement distribué à l’échelle internationale.
 
-Chez les isolats du complexe *Enterobacter cloacae*, la présence des gènes blaACT, fosA et oqxAB correspondait au profil génétique classiquement observé dans ce groupe bactérien.
-Les gènes blaACT codent des céphalosporinases chromosomiques dont l’expression basale est généralement suffisante pour conférer une résistance aux aminopénicillines, sans nécessairement entraîner une résistance aux céphalosporines de troisième génération.
+Chez les isolats du complexe *Enterobacter cloacae*, la présence des gènes *bla*ACT, *fosA* et *oqxAB* correspondait au profil génétique classiquement observé dans ce groupe bactérien.
+Les gènes *bla*ACT codent des céphalosporinases chromosomiques dont l’expression basale est généralement suffisante pour conférer une résistance aux aminopénicillines, sans nécessairement entraîner une résistance aux céphalosporines de troisième génération.
 Une telle résistance apparaît habituellement à la suite d’une surexpression ou d’une dérégulation de ces enzymes.
 
-L’un des isolats d’*Enterobacter cloacae* portait également le gène de carbapénémase blaIMI-1.
+L’un des isolats d’*Enterobacter cloacae* portait également le gène de carbapénémase *bla*IMI-1.
 Bien que localisé sur le chromosome, ce gène ne peut être considéré comme intrinsèque.
 Il est associé à l’élément intégratif mobile EcloIMEX, connu pour favoriser l’acquisition et la perte de ce déterminant au sein du complexe *E. cloacae*.
-La détection de blaIMI-1 explique le phénotype de résistance observé vis-à-vis des carbapénèmes.
+La détection de *bla*IMI-1 explique le phénotype de résistance observé vis-à-vis des carbapénèmes.
 Sa présence dans un isolat issu d’un élevage porcin apparaît particulièrement remarquable compte tenu de l’absence d’utilisation des carbapénèmes en production porcine.
 Cela suggère que ce déterminant pourrait résulter d’échanges entre compartiments écologiques et constitue un marqueur potentiel de circulation intersectorielle de bactéries ou de gènes de résistance.
 
-Enfin, plusieurs isolats de *Klebsiella pneumoniae* et *Klebsiella oxytoca* partageaient un plasmide de type IncFIB portant notamment blaCTX-M-15, blaTEM-1, dfrA14, qnrS1, aph(3'')-Ib, aph(6)-Id et sul2.
+Enfin, plusieurs isolats de *Klebsiella pneumoniae* et *Klebsiella oxytoca* partageaient un plasmide de type IncFIB portant notamment *bla*CTX-M-15, *bla*TEM-1, *dfrA14*, *qnrS1*, *aph(3'')-Ib*, *aph(6)-Id* et *sul2*.
 La co-localisation de ces gènes sur un même plasmide favorise leur co-sélection lors de l’exposition à l’une de ces familles d’antibiotiques et souligne le rôle potentiel des plasmides IncFIB dans la dissémination des déterminants de résistance au sein des entérobactéries.
 Toutefois, malgré la présence des gènes aph, aucun phénotype de résistance aux aminosides n’a été observé chez les isolats concernés, suggérant une absence d’expression ou une expression insuffisante de ces déterminants dans les conditions testées.
 
@@ -588,7 +583,7 @@ Toutefois, malgré la présence des gènes aph, aucun phénotype de résistance 
 
 La @fig-den1 met en évidence la proximité génétique marquée entre les isolats d’*Escherichia coli* ST58 issus des élevages porcins et ceux provenant des autres compartiments étudiés.
 Ce résultat est cohérent avec les données de la littérature, qui décrivent le ST58 comme une lignée largement distribuée dans différents réservoirs animaux, environnementaux et humains.
-Son caractère ubiquiste suggère une capacité d'adaptation à des hôtes et environnements variés, favorisant sa dissémination entre compartiments.
+Son caractère ubiquiste [@58] suggère une capacité d'adaptation à des hôtes et environnements variés, favorisant sa dissémination entre compartiments.
 
 ![Matrice de similitude (par calcul des SNPs) des *Klebsiella* réunionnais.](images/fig13.png){#fig-den2}
 
@@ -603,7 +598,6 @@ Ces observations appuient l'hypothèse d'une circulation à l'échelle de l'île
 La @fig-den3 suggère que, contrairement aux observations réalisées pour *Escherichia coli* et *Klebsiella spp.*, les isolats porcins appartenant au complexe *Enterobacter cloacae* ne présentent pas de proximité génétique marquée avec les souches issues des autres compartiments étudiés.
 Les isolats porcins se regroupent au sein de lignées phylogénétiques distinctes et ne partagent pas de faibles distances SNP avec les isolats humains, animaux ou environnementaux inclus dans l'analyse.
 Cette absence de similarité génétique suggère une circulation plus limitée de ces lignées entre les différents compartiments à l'échelle de La Réunion.
-Les résultats obtenus indiquent ainsi que les isolats porcins du complexe E.
-cloacae pourraient être associés à un réservoir davantage spécifique au compartiment porcin.
+Les résultats obtenus indiquent ainsi que les isolats porcins du complexe *E. cloacae* pourraient être associés à un réservoir davantage spécifique au compartiment porcin.
 
 À l'inverse, les isolats d'*E. coli* et de *Klebsiella spp.* apparaissent plus étroitement liés à des souches provenant de multiples hôtes, suggérant une circulation plus importante entre les différents compartiments étudiés.

@@ -23,8 +23,8 @@ Le questionnaire a été structuré en plusieurs sections thématiques, correspo
 
 -   Environnement de l'élevage : caractéristiques du site susceptibles de constituer des facteurs de risque ou de protection additionnels (proximité de points d'eau, gestion des effluents ou encore les activités d’élevage et agricole environnante.).
 
-    Chaque variable a été codée de manière à être directement exploitable statistiquement : Variable qualitatives binaires (Oui/Non, codées 0/1), variables quantitatives continues ou discrètes (effectifs, distances, fréquences), et variables catégorielles à choix multiples pour les items admettant plusieurs réponses (espèces animales présentes, antibiotiques utilisées).
-    L'ensemble des réponses a été saisi dans un tableur structuré, une ligne par élevage, les en-têtes de colonnes reprenant l'organisation thématique décrite ci- dessus.
+    Chaque variable a été codée de manière à être directement exploitable statistiquement : variables qualitatives binaires (Oui/Non, codées 0/1), variables quantitatives continues ou discrètes (effectifs, distances, fréquences), et variables catégorielles à choix multiples pour les items admettant plusieurs réponses (espèces animales présentes, antibiotiques utilisées).
+    L'ensemble des réponses a été saisi dans un tableur structuré, une ligne par élevage, les en-têtes de colonnes reprenant l'organisation thématique décrite ci-dessus.
 
     Les facteurs de risque potentiellement associés à la présence d'entérobactérie résistante ont été étudiés à l'échelle de l'élevage et des pratiques.
     Dans un premier temps, chaque variable explicative a été analysée individuellement à l'aide d'une régression logistique binomiale.
@@ -87,7 +87,8 @@ Dans cette étude, une exploitation était considérée comme positive dès lors
 Les analyses statistiques ont été réalisées à l’aide du logiciel R (version 4.6.0).
 Les prévalences ont été calculées comme le rapport entre le nombre d’élevages positifs et le nombre total d’élevages échantillonnés.
 Les intervalles de confiance à 95 % ont été estimés selon la méthode binomiale exacte de Clopper-Pearson à l’aide de la fonction binom.test() du package stats.
-Les comparaisons de prévalence entre cette étude et les données issues de la littérature ont été réalisées à l’aide d’un test de comparaison de proportions implémenté dans la fonction prop.test() du package stats, sans correction de continuité de Yates (correct = FALSE).Le seuil de significativité statistique a été fixé à p\* \< 0,05.
+Les comparaisons de prévalence entre cette étude et les données issues de la littérature ont été réalisées à l’aide d’un test de comparaison de proportions implémenté dans la fonction prop.test() du package stats, sans correction de continuité de Yates (correct = FALSE).
+Le seuil de significativité statistique a été fixé à p\* \< 0,05.
 
 Des prévalences régionales ont également été calculées pour chaque zone géographique, accompagnées de leurs intervalles de confiance à 95 % estimés comme précédemment par la méthode binomiale.
 En raison des faibles effectifs observés dans certaines régions, les comparaisons des proportions entre zones géographiques ont été réalisées à l’aide du test exact de Fisher (fisher.test()).
@@ -98,21 +99,21 @@ Les représentations graphiques ont été réalisées à l’aide du package ggp
 
 ### Cultures et isolement des E-BLSE et E-CPE
 
-Les prélèvements réalisés à partir des pédichiffonnettes, écouvillons rectaux et échantillons de fèces ont été mis en incubation dans 200ml de milieu d’enrichissement non sélectif à base d’eau peptonée à 36± 1°C pendant 21 ± 3 heures afin de favoriser la multiplication des bactéries présentes et d’augmenter la sensibilité de détection des entérobactéries résistantes aux antibiotiques.
+Les prélèvements réalisés à partir des pédichiffonnettes, écouvillons rectaux et échantillons de fèces ont été mis en incubation dans 200ml de milieu d’enrichissement non sélectif à base d’eau peptonée à 36 ± 1°C pendant 21 ± 3 heures afin de favoriser la multiplication des bactéries présentes et d’augmenter la sensibilité de détection des entérobactéries résistantes aux antibiotiques.
 
 Après homogénéisation, 10 μL de chaque échantillon a été ensemencé sur une paire de géloses chromogéniques sélectives ChromID® ESBL et ChromID® Carba (bioMérieux) à l’aide d’une anse bactériologique.
 L’ensemencement était réalisé selon une méthode de striation permettant la dilution progressive de l’inoculum et l’obtention de colonies isolées.
-Les géloses ont ensuite été incubées à 36± 1°C pendant 21 ± 3 h en aérobiose.
+Les géloses ont ensuite été incubées à 36 ± 1°C pendant 21 ± 3 h en aérobiose.
 
 L’utilisation conjointe des milieux ChromID® ESBL et ChromID® Carba visait à détecter les principaux mécanismes de résistance aux β-lactamines chez les entérobactéries.
 L’utilisation simultanée de ces deux milieux sélectifs permettait ainsi d’assurer une surveillance large des mécanismes de résistance d’intérêt épidémiologique et d’évaluer le rôle potentiel des élevages porcins dans la circulation de bactéries multirésistantes.
 
 Les colonies présentant une croissance sur les milieux ChromID® ESBL et Carba ont été sélectionnées conformément aux recommandations du fabricant.
-Les colonies rose à bordeaux étaient considérées comme suspectes d’*Escherichia coli*, tandis que les colonies bleu-vert à bleu-gris étaient considérées comme appartenant à d’autres espèces d’*entérobacterie*, telles que *Klebsiella spp.* ou *Enterobacter spp.*.
+Les colonies rose à bordeaux étaient considérées comme suspectes d’*Escherichia coli*, tandis que les colonies bleu-vert à bleu-gris étaient considérées comme appartenant à d’autres espèces d’entérobactéries, telles que *Klebsiella spp.* ou *Enterobacter spp.*.
 
 Toutes les colonies présentant ces colorations caractéristiques ont été conservées pour les analyses ultérieures.
 Les colonies blanches ou incolores présentant une morphologie compatible avec celle d’une entérobactérie ont également été examinées.
-Ces colonies ont été soumises à un test d’oxydase afin de discriminer les bactéries d’intérêts des autres bactéries Gram négatif susceptibles de croître sur les milieux sélectifs.
+Ces colonies ont été soumises à un test d’oxydase afin de discriminer les bactéries d’intérêt des autres bactéries Gram négatif susceptibles de croître sur les milieux sélectifs.
 Les colonies présentant un résultat négatif au test de l’oxydase ont été conservées pour la suite des analyses, tandis que les colonies oxydase positives ont été exclues.
 
 Cette stratégie permettait de maximiser la sensibilité de détection des entérobactéries porteuses de mécanismes de résistance de type BLSE ou carbapénémase tout en limitant l’inclusion d’isolats n’appartenant pas à l’ordre des *Enterobacterales*.
@@ -124,9 +125,9 @@ Lorsqu’un même prélèvement présentait plusieurs morphotypes bactériens co
 Cette opération pouvait être répétée plusieurs fois jusqu’à l’obtention d’une culture considérée comme pure sur la base de l’homogénéité morphologique des colonies observées.
 Une fois la pureté de l’isolat jugée satisfaisante, l’ensemble de la culture était prélevé à l’aide d’une anse bactériologique puis suspendu dans un milieu cryoprotecteur.
 
-Le milieu de conservation utilisé était un bouillon glycérol-peptone (BGP) com-posé, pour 100 mL de solution, de 1 g de peptone, 0,5 g de chlorure de sodium (NaCl), 25 mL de glycérol et 75 mL d’eau distillée stérile.
+Le milieu de conservation utilisé était un bouillon glycérol-peptone (BGP) composé, pour 100 mL de solution, de 1 g de peptone, 0,5 g de chlorure de sodium (NaCl), 25 mL de glycérol et 75 mL d’eau distillée stérile.
 
-Une fois les cryotubes identifiés les isolats bactériens ont ensuite été conservés à-80°C .
+Une fois les cryotubes identifiés, les isolats bactériens ont ensuite été conservés à -80°C .
 
 ### Identification des isolats bactériens
 
@@ -282,9 +283,12 @@ Les lectures de faible longueur (\< 200 pb) ont été filtrées à l’aide du l
 Les génomes ont ensuite été assemblés *de novo* avec Flye v2.9.2, puis corrigés par polissage à l’aide de Medaka v1.11.3 afin de réduire les erreurs résiduelles associées au séquençage Nanopore.
 Une profondeur minimale de séquençage de 100× a été obtenue pour l’ensemble des isolats.
 
+Les données de séquençage étaient conservées dans l'étude si l'assemblage répondait aux critères de qualité suivants : une profondeur de séquençage supérieure à 50×, une taille totale d'assemblage comprise entre 4 000 000 et 6 500 000 paires de bases, cohérente avec la taille de génome attendue pour les espèces d'Enterobacterales étudiées, une taille d'assemblage représentant au minimum la moitié de la taille de génome attendue pour l'espèce identifiée, ainsi qu'un N50 supérieur à 1 Mb, seuil couramment retenu pour les assemblages bactériens de novo obtenus à partir de lectures longues Nanopore. Les isolats dont l'assemblage ne répondait pas à l'ensemble de ces critères ont été exclus des analyses génomiques ultérieures."
+
 ### Identification taxonomique des isolats
 
-L'identification taxonomique a été réalisée à l'aide de GAMBIT (Genomic Approximation Method for Bacterial Identification and Tracking).Cette méthode repose sur une approche basée sur les k-mers permettant d’assigner une identité taxonomique aux isolats par comparaison avec une base de génomes bactériens de référence et par évaluation de leur proximité génétique.
+L'identification taxonomique a été réalisée à l'aide de GAMBIT (Genomic Approximation Method for Bacterial Identification and Tracking).
+Cette méthode repose sur une approche basée sur les k-mers permettant d’assigner une identité taxonomique aux isolats par comparaison avec une base de génomes bactériens de référence et par évaluation de leur proximité génétique.
 
 Le typage génétique des isolats a ensuite été réalisé par Multi-Locus Sequence Typing (MLST).
 Cette approche repose sur l’analyse des séquences de sept gènes constitutifs conservés et permet l’attribution d’un Sequence Type (ST) à chaque isolat par comparaison à des bases de données de référence.

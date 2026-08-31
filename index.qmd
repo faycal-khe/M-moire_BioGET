@@ -1,10 +1,12 @@
 # Résumé {.unnumbered}
 
-La résistance aux antimicrobiens (RAM) constitue un enjeu majeur de santé publique, affectant la santé humaine, animale et environnementale. À La Réunion, la filière porcine, structurée, offre un cadre pertinent pour étudier l'épidémiologie des entérobactéries résistantes dans une approche One Health.
+La résistance aux antimicrobiens (RAM) constitue un enjeu majeur de santé publique, affectant la santé humaine, animale et environnementale.
+À La Réunion, la filière porcine, structurée, offre un cadre pertinent pour étudier l'épidémiologie des entérobactéries résistantes dans une approche One Health.
 
 Une enquête menée dans 89 élevages a combiné caractérisation phénotypique et génomique et analyse des pratiques d'élevage.
 Des isolats résistants ont été détectés dans 13,5 % des élevages, contre environ 50 % huit ans plus tôt.
-Les espèces identifiées présentaient majoritairement la β-lactamase CTX-M-15 ; un plasmide IncFIB partagé chez *Klebsiella* et un isolat d'*Enterobacter sichuanensis* porteur de blaIMI-1 ont été observés, malgré l'absence d'usage des carbapénèmes en filière porcine.La proximité d'un point d'eau et le respect de la marche en avant apparaissaient respectivement associés à une hausse et à une diminution du risque de portage.
+Les espèces identifiées présentaient majoritairement la β-lactamase CTX-M-15 ; un plasmide IncFIB partagé chez *Klebsiella* et un isolat d'*Enterobacter sichuanensis* porteur de *bla*IMI-1 ont été observés, malgré l'absence d'usage des carbapénèmes en filière porcine.
+La proximité d'un point d'eau et le respect de la marche en avant apparaissaient respectivement associés à une hausse et à une diminution du risque de portage.
 Cette diminution de prévalence suggère des progrès en biosécurité et en usage raisonné des antibiotiques par les professionnels du secteur.
 
 Cette étude actualise ainsi l'épidémiologie des *Enterobacterales* résistantes en filière porcine réunionnaise et invite à renforcer le suivi de la qualité de l'eau (projet Earth) ainsi que la sensibilisation des éleveurs à la marche en avant, deux leviers complémentaires aux mesures déjà engagées par la filière.
@@ -12,11 +14,13 @@ Cette étude actualise ainsi l'épidémiologie des *Enterobacterales* résistant
 ::: {lang="en-GB"}
 ## Abstract {.unnumbered}
 
-Antimicrobial resistance (AMR) constitutes a major global public health issue, affecting human, animal, and environmental health. In Réunion Island, the structured pig production sector provides a relevant framework for studying the epidemiology of resistant *Enterobacterales* within a One Health approach.
+Antimicrobial resistance (AMR) constitutes a major global public health issue, affecting human, animal, and environmental health.
+In Réunion Island, the structured pig production sector provides a relevant framework for studying the epidemiology of resistant *Enterobacterales* within a One Health approach.
 
 A survey conducted across 89 farms combined phenotypic and genomic characterization with an analysis of farming practices.
-Resistant isolates were detected in 13.5% of farms, compared to approximately 50% eight years earlier.
-The identified species predominantly carried the β-lactamase CTX-M-15; a shared IncFIB plasmid among *Klebsiella* isolates and an *Enterobacter sichuanensis* isolate carrying blaIMI-1 were also observed, despite the absence of carbapenem use in pig production.Proximity to a water source and compliance with all-forward management were respectively associated with an increased and a decreased risk of carriage.
+Resistant isolates were detected in 13.5 % of farms, compared to approximately 50 % eight years earlier.
+The identified species predominantly carried the β-lactamase CTX-M-15; a shared IncFIB plasmid among *Klebsiella* isolates and an *Enterobacter sichuanensis* isolate carrying *bla*IMI-1 were also observed, despite the absence of carbapenem use in pig production.
+Proximity to a water source and compliance with all-forward management were respectively associated with an increased and a decreased risk of carriage.
 
 This decline in prevalence suggests progress in biosecurity and responsible antibiotic use by sector professionals.
 This study thus provides an updated picture of the epidemiology of resistant Enterobacterales in the Réunion Island pig sector, and calls for strengthened monitoring of water quality (Earth project) as well as increased farmer awareness of all-forward management, two levers complementing the measures already implemented by the sector.

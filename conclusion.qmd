@@ -12,7 +12,7 @@ D'une part, un suivi de la qualité microbiologique de l'eau, s'inscrivant dans 
 D'autre part, ces résultats pourraient nourrir des actions de communication auprès des éleveurs afin de renforcer l'application de la marche en avant et la vigilance sur la qualité de l'eau, deux leviers concrets et complémentaires des mesures de biosécurité déjà engagées par la filière porcine réunionnaise dans la maîtrise de l'antibiorésistance.
 
 Les analyses phénotypiques et génomiques ont toutefois confirmé la persistance de déterminants de résistance d'importance majeure en santé publique, notamment les β-lactamases à spectre étendu de type CTX-M-15 et plusieurs plasmides multirésistants susceptibles de favoriser la dissémination des gènes de résistance.
-La détection d'un *Enterobacter sichuanensis* porteur du gène blaIMI-1 constitue un résultat particulièrement notable.
+La détection d'un *Enterobacter sichuanensis* porteur du gène *bla*IMI-1 constitue un résultat particulièrement notable.
 En raison de l'absence d'utilisation des carbapénèmes en production porcine, la présence de ce déterminant ne peut être expliquée par une pression de sélection directe exercée par cette classe antibiotique au sein des élevages étudiés.
 Cette observation souligne l'intérêt de mieux comprendre les mécanismes de maintien et de diffusion de ces déterminants de résistance dans les populations bactériennes circulant en élevage.
 Des investigations complémentaires seraient nécessaires afin d'identifier l'origine de ce gène et les mécanismes impliqués dans sa persistance au sein du compartiment porcin.

@@ -171,10 +171,10 @@ De plus, le caractère insulaire de La Réunion constitue un avantage pour l’�
 L’absence d’importation d’animaux vivants vers l’île, associée à une circulation géographiquement contrainte des personnes et des marchandises, facilite l’identification des voies potentielles d’introduction et de diffusion des bactéries résistantes.
 Cette relative délimitation géographique permet d’appréhender plus finement les mécanismes de circulation des bactéries résistantes entre les compartiments humain, animal et environnemental.
 
-Dans ce contexte, plusieurs travaux ont été réalisés au sein des unité du CIRAD ces dernières années afin d’évaluer la présence de bactéries résistantes aux antibiotiques au sein des différents compartiments réunionnais.
+Dans ce contexte, plusieurs travaux ont été réalisés au sein des unités du CIRAD ces dernières années afin d’évaluer la présence de bactéries résistantes aux antibiotiques au sein des différents compartiments réunionnais.
 Ces études mettent en évidence la circulation de bactéries porteuses de mécanismes de résistance d’intérêt majeur en santé publique, notamment des entérobactéries productrices de β-lactamases à spectre étendu (E-BLSE).
 Dans les élevages porcins réunionnais, la prévalence des E-BLSE au niveau des exploitations, en 2016, a notamment été estimée à plus de 50 %, soulignant l’importance de ce réservoir animal dans l’épidémiologie locale de l’antibiorésistance [@Farm2018; @miltgenOneHealthCompartmental2022].
-Des travaux plus récents de 2018, confirment cette large diffusion des E-BLSE au sein de la filière porcine réunionnaise et mettent en évidence la circulation de clones bactériens et d’éléments génétiques mobiles associés aux gènes de résistance.
+Des travaux plus récents de 2018 confirment cette large diffusion des E-BLSE au sein de la filière porcine réunionnaise et mettent en évidence la circulation de clones bactériens et d’éléments génétiques mobiles associés aux gènes de résistance.
 Ces résultats soulignent l’intérêt de poursuivre les investigations sur les mécanismes impliqués dans le maintien et la dissémination de ces résistances à l’interface entre les compartiments animal, humain et environnemental.
 
 Par ailleurs, une synthèse récente consacrée à l’antibiorésistance dans les territoires du sud-ouest de l’océan Indien [@ReviewOI] a mis en évidence la présence de nombreux pathogènes prioritaires résistants aux antibiotiques dans la région tout en soulignant l’insuffisance de données permettant d’étudier les échanges entre les compartiments humain, animal et environnemental.
@@ -347,7 +347,8 @@ Pour répondre à cet objectif général, plusieurs objectifs spécifiques ont �
 -   Décrire les caractéristiques des élevages porcins enquêtés ainsi que leurs pratiques sanitaires, zootechniques et de biosécurité.
 
 -   Rechercher et caractériser les entérobactéries résistantes aux antibiotiques présentes au sein des élevages étudiés.
-    -Identifier les isolats d’intérêt et déterminer leurs profils phénotypiques de résistance aux antibiotiques.
+
+-   Identifier les isolats d’intérêt et déterminer leurs profils phénotypiques de résistance aux antibiotiques.
 
 -   Caractériser les déterminants génétiques de la résistance ainsi que les éléments génétiques mobiles qui leur sont associés à l’aide d’approches de séquençage génomique.
 
