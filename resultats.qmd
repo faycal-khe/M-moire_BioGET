@@ -191,8 +191,8 @@ Graphique de la prévalence par commune.
 
 ## Facteurs de risque
 
-Une analyse univariée par régression logistique a été réalisée afin d'identifier les facteurs associés au portage d'entérobactéries productrices de β-lactamases à spectre étendu (E-BSL).
-Parmi les variables étudiées, deux présentaient une association avec le statut E-BSL pour un seuil de sélection fixé à p\*\< 0,20 : la présence d'un point d'eau à moins de 100 m de l'élevage et le respect de la marche en avant.
+Une analyse univariée par régression logistique a été réalisée afin d'identifier les facteurs associés au portage d'entérobactéries productrices de β-lactamases à spectre étendu (E-BLSE).
+Parmi les variables étudiées, deux présentaient une association avec le statut E-BLSE pour un seuil de sélection fixé à p\*\< 0,10 : la présence d'un point d'eau à moins de 100 m de l'élevage et le respect de la marche en avant.
 
 La présence d'un point d'eau à moins de 100 m était associée à une augmentation du risque de présence de bactérie résistante dans l’élevage (OR = 4,06 \[0,92 ; 16,5 \]; p\* = 0,052).
 À l'inverse, le respect de la marche en avant était associé à une diminution du risque (OR = 0,23 \[0,06 ; 0,87\] ; p\* = 0,030).
@@ -328,8 +328,8 @@ Le @tbl-ID présente la répartition détaillée des espèces bactériennes iden
     
     cols_label(
       isolat_ID = "Isolat",
-      Culture_ESBL="Culture",
-      Culture_CARBA="Culture",
+      Culture_ESBL="Culture BLSE",
+      Culture_CARBA="Culture Carba",
       Identification_MALDI = "Identification",
       Score_MALDI = "Score",
       Niveau_MALDI = "Niveau",
@@ -511,7 +511,7 @@ Ainsi, la souche 29FP.B a été rattachée à l'espèce *Enterobacter sichuanens
 
 Les 16 antibiogrammes ont été réalisés, puis les résultats ont été compilés en @fig-pheno
 
-![Heatmaps des profils de résistance des souches isolées.](images/fig10.png){#fig-pheno}
+![Heatmap des profils de résistance des souches isolées.](images/fig10.png){#fig-pheno}
 
 De manière générale, cette analyse met en évidence une résistance élevée aux β-lactamines parmi les isolats étudiés.
 La majorité des souches présentaient une résistance à l'amoxicilline et à la ticarcilline, confirmant un phénotype compatible avec la production de β-lactamases à spectre étendu (BLSE).
@@ -550,7 +550,7 @@ Cela constitue un signal fort de santé publique.
 
 ## Analyse du génotype de résistance (gènes détectés)
 
-![Heatmaps des gènes de résistances indentifiés.](images/fig11.png){#fig-geno}
+![Heatmap des gènes de résistance identifiés.](images/fig11.png){#fig-geno}
 
 La souche 04FP.B présentait un profil génétique atypique associé à une qualité d’assemblage insuffisante.
 La présence simultanée de nombreux déterminants chromosomiques et plasmidiques incompatibles avec l’identité taxonomique attribuée suggérait une contamination de l’échantillon ou de l’assemblage.
@@ -585,7 +585,7 @@ La @fig-den1 met en évidence la proximité génétique marquée entre les isola
 Ce résultat est cohérent avec les données de la littérature, qui décrivent le ST58 comme une lignée largement distribuée dans différents réservoirs animaux, environnementaux et humains.
 Son caractère ubiquiste [@58] suggère une capacité d'adaptation à des hôtes et environnements variés, favorisant sa dissémination entre compartiments.
 
-![Matrice de similitude (par calcul des SNPs) des *Klebsiella* réunionnais.](images/fig13.png){#fig-den2}
+![Matrice de similitude (par calcul des SNPs) des *Klebsiella spp* réunionnais.](images/fig13.png){#fig-den2}
 
 La @fig-den2 met en évidence une forte proximité génétique entre l'ensemble des isolats de *Klebsiella* pneumoniae, avec des distances génomiques inférieures à 100 SNPs.
 Cette faible divergence suggère l'existence d'une origine commune récente ou la circulation d'un même pool génétique à l'échelle de l'île.

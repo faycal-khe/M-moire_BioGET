@@ -9,13 +9,13 @@ Les espèces identifiées présentaient majoritairement la β-lactamase CTX-M-15
 La proximité d'un point d'eau et le respect de la marche en avant apparaissaient respectivement associés à une hausse et à une diminution du risque de portage.
 Cette diminution de prévalence suggère des progrès en biosécurité et en usage raisonné des antibiotiques par les professionnels du secteur.
 
-Cette étude actualise ainsi l'épidémiologie des *Enterobacterales* résistantes en filière porcine réunionnaise et invite à renforcer le suivi de la qualité de l'eau (projet Earth) ainsi que la sensibilisation des éleveurs à la marche en avant, deux leviers complémentaires aux mesures déjà engagées par la filière.
+Cette étude actualise ainsi l'épidémiologie des Enterobacterales résistantes en filière porcine réunionnaise et invite à renforcer le suivi de la qualité de l'eau (projet Earth) ainsi que la sensibilisation des éleveurs à la marche en avant, deux leviers complémentaires aux mesures déjà engagées par la filière.
 
 ::: {lang="en-GB"}
 ## Abstract {.unnumbered}
 
 Antimicrobial resistance (AMR) constitutes a major global public health issue, affecting human, animal, and environmental health.
-In Réunion Island, the structured pig production sector provides a relevant framework for studying the epidemiology of resistant *Enterobacterales* within a One Health approach.
+In Réunion Island, the structured pig production sector provides a relevant framework for studying the epidemiology of resistant Enterobacterales within a One Health approach.
 
 A survey conducted across 89 farms combined phenotypic and genomic characterization with an analysis of farming practices.
 Resistant isolates were detected in 13.5 % of farms, compared to approximately 50 % eight years earlier.

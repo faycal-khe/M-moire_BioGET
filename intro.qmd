@@ -53,7 +53,7 @@ Ainsi, cette étude s’inscrit pleinement dans les objectifs des programmes nat
 
 ## L’antibiorésistance : un enjeu de santé publique
 
-### Resistance et persistance chez les bactéries
+### Résistance et persistance chez les bactéries
 
 L’antibiorésistance est définie comme la capacité d’une bactérie à résister à l’action d’un ou plusieurs antibiotiques, lui permettant de survivre ou de se multiplier malgré l’exposition à ces agents antimicrobiens.
 Il convient de préciser que cette résistance est portée par les bactéries elles-mêmes, par l’acquisition ou la sélection de mécanismes de résistance, et non par l’hôte infecté, qu’il soit humain ou animal.
@@ -102,7 +102,7 @@ Afin de préserver leur efficacité, leur utilisation est strictement encadrée 
 Les gènes codant les BLSE sont fréquemment portés par des plasmides, favorisant leur diffusion rapide entre bactéries par transfert horizontal de gènes.
 La circulation mondiale des entérobactéries productrices de BLSE (E-BLSE) est aujourd’hui reconnue comme un enjeu majeur de santé publique en raison de leur capacité à compromettre l’efficacité de traitements antibiotiques essentiels et à se diffuser entre les compartiments humain, animal et environnemental.
 
-### Entérobactérie un modèle pertinent de l’antibiorésistance en approche One Health
+### Les entérobactérie un modèle pertinent de l’antibiorésistance en approche One Health
 
 La persistance des bactéries résistantes et des déterminants génétiques de résistance au sein des populations bactériennes soulève une problématique qui dépasse largement le cadre de l'individu ou de l'exploitation d'origine.
 En effet, l’antibiorésistance ne se limite pas au secteur médical ou hospitalier [@kimAntibioticResistomeOneHealth2021; @hernando-amadoDefiningCombatingAntibiotic2019a].
